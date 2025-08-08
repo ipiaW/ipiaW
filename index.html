@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medieval Survival | Server Minecraft</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-crown"></i> Medieval Survival</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#server">Server</a></li>
+                    <li><a href="#rules">Aturan</a></li>
+                    <li><a href="#features">Fitur</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Selamat Datang di Dunia Medieval</h1>
+            <p class="hero-subtitle">Survive, Build, Explore & Conquer</p>
+            <div class="hero-buttons">
+                <a href="#server" class="btn btn-primary">Join Server</a>
+                <a href="#features" class="btn btn-secondary">Lihat Fitur</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Server Info -->
+    <section id="server" class="server-info">
+        <div class="container">
+            <h2 class="section-title">Informasi Server</h2>
+            <div class="server-card">
+                <div class="server-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <span class="stat-number" id="onlinePlayers">0</span>
+                        <span class="stat-label">Player Online</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-server"></i>
+                        <span class="stat-number">1.19.4</span>
+                        <span class="stat-label">Versi Server</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Chunk</span>
+                    </div>
+                </div>
+                <div class="server-details">
+                    <h3>IP Server: <span class="server-ip">play.medieval-survival.net</span></h3>
+                    <p class="server-description">Server Minecraft Medieval Survival dengan pengalaman bermain yang unik dan menantang.</p>
+                    <button class="btn btn-primary copy-btn" onclick="copyIP()">Salin IP</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="rules">
+        <div class="container">
+            <h2 class="section-title">Aturan Server</h2>
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Keamanan</h3>
+                    <p>Tidak diperbolehkan menggunakan cheat atau modifikasi game yang tidak diizinkan.</p>
+                </div>
+                <div class="rule-card">
+                    <i class="fas fa-user-friends"></i>
+                    <h3>Sosial</h3>
+                    <p>Bersikap sopan dan hormat terhadap semua pemain.</p>
+                </div>
+                <div class="rule-card">
+                    <i class="fas fa-gavel"></i>
+                    <h3>Peraturan</h3>
+                    <p>Pemain yang melanggar aturan akan mendapat sanksi sesuai ketentuan.</p>
+                </div>
+                <div class="rule-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Kompetisi</h3>
+                    <p>Ikuti event-event yang diselenggarakan untuk mendapatkan hadiah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Fitur Server</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-dungeon"></i>
+                    </div>
+                    <h3>Dungeon & Boss</h3>
+                    <p>Menyelami dunia bawah tanah dengan dungeon dan boss yang menantang.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-helmet-battle"></i>
+                    </div>
+                    <h3>Combat System</h3>
+                    <p>Sistem pertempuran yang realistis dengan berbagai senjata dan armor.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <h3>Build System</h3>
+                    <p>Bangun kota-kota medieval dengan berbagai material dan dekorasi.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <h3>Animal Farming</h3>
+                    <p>Budidayakan hewan untuk kebutuhan sehari-hari.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-campground"></i>
+                    </div>
+                    <h3>Quest System</h3>
+                    <p>Ikuti misi-misi yang akan memberikan hadiah berharga.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Economy</h3>
+                    <p>Sistem ekonomi dengan sistem perdagangan dan toko.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>admin@medieval-survival.net</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-discord"></i>
+                        <span>Discord Server</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <span>www.medieval-survival.net</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Nama Anda" required>
+                        <input type="email" placeholder="Email Anda" required>
+                        <textarea placeholder="Pesan Anda" rows="5" required></textarea>
+                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3><i class="fas fa-crown"></i> Medieval Survival</h3>
+                    <p>Server Minecraft Medieval Survival - Experience the Middle Ages</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Medieval Survival. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
