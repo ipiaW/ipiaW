@@ -4,96 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medieval Survival | Server Minecraft</title>
+    <meta name="description" content="Server Minecraft Medieval Survival - Experience the Middle Ages">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="icon" href="assets/images/logo.png" type="image/png">
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading Medieval World...</div>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="logo">
                 <h1><i class="fas fa-crown"></i> Medieval Survival</h1>
+                <span class="tagline">Where Legends Are Born</span>
             </div>
             <nav class="navbar">
                 <ul>
-                    <li><a href="#home">Beranda</a></li>
-                    <li><a href="#server">Server</a></li>
-                    <li><a href="#rules">Aturan</a></li>
-                    <li><a href="#features">Fitur</a></li>
-                    <li><a href="#contact">Kontak</a></li>
+                    <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li><a href="#server" class="nav-link"><i class="fas fa-server"></i> Server</a></li>
+                    <li><a href="#features" class="nav-link"><i class="fas fa-star"></i> Fitur</a></li>
+                    <li><a href="#events" class="nav-link"><i class="fas fa-calendar-alt"></i> Event</a></li>
+                    <li><a href="#leaderboard" class="nav-link"><i class="fas fa-trophy"></i> Leaderboard</a></li>
+                    <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Kontak</a></li>
                 </ul>
             </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
+        <div class="hero-overlay"></div>
+        <div class="hero-content animate__animated animate__fadeIn">
             <h1 class="hero-title">Selamat Datang di Dunia Medieval</h1>
             <p class="hero-subtitle">Survive, Build, Explore & Conquer</p>
             <div class="hero-buttons">
-                <a href="#server" class="btn btn-primary">Join Server</a>
-                <a href="#features" class="btn btn-secondary">Lihat Fitur</a>
+                <a href="#server" class="btn btn-primary animate__animated animate__pulse animate__infinite">
+                    <i class="fas fa-play-circle"></i> Join Server
+                </a>
+                <a href="#features" class="btn btn-secondary">
+                    <i class="fas fa-star"></i> Lihat Fitur
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <span id="onlinePlayers" class="stat-number">0</span>
+                    <span class="stat-label">Player Online</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-sword"></i>
+                    <span id="totalKills" class="stat-number">0</span>
+                    <span class="stat-label">Total Kills</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-building"></i>
+                    <span id="totalBuildings" class="stat-number">0</span>
+                    <span class="stat-label">Buildings</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Server Info -->
-    <section id="server" class="server-info">
+    <!-- Server Status Section -->
+    <section id="server" class="server-status">
         <div class="container">
-            <h2 class="section-title">Informasi Server</h2>
-            <div class="server-card">
-                <div class="server-stats">
-                    <div class="stat-item">
-                        <i class="fas fa-users"></i>
-                        <span class="stat-number" id="onlinePlayers">0</span>
-                        <span class="stat-label">Player Online</span>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-server"></i>
-                        <span class="stat-number">1.19.4</span>
-                        <span class="stat-label">Versi Server</span>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-map-marked-alt"></i>
-                        <span class="stat-number">1000+</span>
-                        <span class="stat-label">Chunk</span>
-                    </div>
+            <h2 class="section-title animate__animated animate__fadeInDown">
+                <i class="fas fa-server"></i> Status Server Real-time
+            </h2>
+            <div class="server-card animate__animated animate__fadeInUp">
+                <div class="server-header">
+                    <h3>Medieval Survival Server</h3>
+                    <span class="status-indicator online" id="serverStatus">Online</span>
                 </div>
                 <div class="server-details">
-                    <h3>IP Server: <span class="server-ip">play.medieval-survival.net</span></h3>
-                    <p class="server-description">Server Minecraft Medieval Survival dengan pengalaman bermain yang unik dan menantang.</p>
-                    <button class="btn btn-primary copy-btn" onclick="copyIP()">Salin IP</button>
+                    <div class="detail-row">
+                        <i class="fas fa-network-wired"></i>
+                        <span>IP: <strong>play.medieval-survival.net</strong></span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fas fa-code-branch"></i>
+                        <span>Versi: <strong>Minecraft 1.19.4</strong></span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fas fa-map"></i>
+                        <span>Map Size: <strong>1000+ Chunks</strong></span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fas fa-clock"></i>
+                        <span>Uptime: <strong id="serverUptime">0 days</strong></span>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Rules Section -->
-    <section id="rules" class="rules">
-        <div class="container">
-            <h2 class="section-title">Aturan Server</h2>
-            <div class="rules-grid">
-                <div class="rule-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Keamanan</h3>
-                    <p>Tidak diperbolehkan menggunakan cheat atau modifikasi game yang tidak diizinkan.</p>
-                </div>
-                <div class="rule-card">
-                    <i class="fas fa-user-friends"></i>
-                    <h3>Sosial</h3>
-                    <p>Bersikap sopan dan hormat terhadap semua pemain.</p>
-                </div>
-                <div class="rule-card">
-                    <i class="fas fa-gavel"></i>
-                    <h3>Peraturan</h3>
-                    <p>Pemain yang melanggar aturan akan mendapat sanksi sesuai ketentuan.</p>
-                </div>
-                <div class="rule-card">
-                    <i class="fas fa-trophy"></i>
-                    <h3>Kompetisi</h3>
-                    <p>Ikuti event-event yang diselenggarakan untuk mendapatkan hadiah.</p>
+                <div class="server-actions">
+                    <button class="btn btn-primary copy-btn" onclick="copyIP()">
+                        <i class="fas fa-copy"></i> Salin IP
+                    </button>
+                    <button class="btn btn-success" onclick="joinServer()">
+                        <i class="fas fa-plug"></i> Join Sekarang
+                    </button>
                 </div>
             </div>
         </div>
@@ -102,49 +119,202 @@
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">Fitur Server</h2>
+            <h2 class="section-title animate__animated animate__fadeInDown">
+                <i class="fas fa-star"></i> Fitur Unggulan Server
+            </h2>
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card animate__animated animate__fadeInUp" data-wow-delay="0.1s">
                     <div class="feature-icon">
                         <i class="fas fa-dungeon"></i>
                     </div>
                     <h3>Dungeon & Boss</h3>
-                    <p>Menyelami dunia bawah tanah dengan dungeon dan boss yang menantang.</p>
+                    <p>Menyelami dunia bawah tanah dengan dungeon dan boss yang menantang. Hadiah berharga menunggu!</p>
+                    <div class="feature-badge">New</div>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card animate__animated animate__fadeInUp" data-wow-delay="0.2s">
                     <div class="feature-icon">
                         <i class="fas fa-helmet-battle"></i>
                     </div>
                     <h3>Combat System</h3>
-                    <p>Sistem pertempuran yang realistis dengan berbagai senjata dan armor.</p>
+                    <p>Sistem pertempuran yang realistis dengan berbagai senjata dan armor medieval.</p>
+                    <div class="feature-badge">Popular</div>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card animate__animated animate__fadeInUp" data-wow-delay="0.3s">
                     <div class="feature-icon">
                         <i class="fas fa-city"></i>
                     </div>
                     <h3>Build System</h3>
                     <p>Bangun kota-kota medieval dengan berbagai material dan dekorasi.</p>
+                    <div class="feature-badge">Advanced</div>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card animate__animated animate__fadeInUp" data-wow-delay="0.4s">
                     <div class="feature-icon">
                         <i class="fas fa-paw"></i>
                     </div>
                     <h3>Animal Farming</h3>
-                    <p>Budidayakan hewan untuk kebutuhan sehari-hari.</p>
+                    <p>Budidayakan hewan untuk kebutuhan sehari-hari dan ekonomi.</p>
+                    <div class="feature-badge">Fun</div>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card animate__animated animate__fadeInUp" data-wow-delay="0.5s">
                     <div class="feature-icon">
                         <i class="fas fa-campground"></i>
                     </div>
                     <h3>Quest System</h3>
                     <p>Ikuti misi-misi yang akan memberikan hadiah berharga.</p>
+                    <div class="feature-badge">Quest</div>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card animate__animated animate__fadeInUp" data-wow-delay="0.6s">
                     <div class="feature-icon">
                         <i class="fas fa-gem"></i>
                     </div>
                     <h3>Economy</h3>
                     <p>Sistem ekonomi dengan sistem perdagangan dan toko.</p>
+                    <div class="feature-badge">Economy</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeInDown">
+                <i class="fas fa-calendar-alt"></i> Event & Tournament
+            </h2>
+            <div class="events-container">
+                <div class="event-card animate__animated animate__fadeInLeft">
+                    <div class="event-date">
+                        <span class="day">15</span>
+                        <span class="month">Jun</span>
+                    </div>
+                    <div class="event-content">
+                        <h3>Tournament King of the Hill</h3>
+                        <p>Perlombaan membangun kota terbesar di area khusus!</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 14:00 WIB</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Castle District</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card animate__animated animate__fadeInRight">
+                    <div class="event-date">
+                        <span class="day">22</span>
+                        <span class="month">Jun</span>
+                    </div>
+                    <div class="event-content">
+                        <h3>Weekly Dungeon Run</h3>
+                        <p>Masuk ke dungeon khusus mingguan dengan hadiah spesial!</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 20:00 WIB</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Underground Caves</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card animate__animated animate__fadeInLeft">
+                    <div class="event-date">
+                        <span class="day">30</span>
+                        <span class="month">Jun</span>
+                    </div>
+                    <div class="event-content">
+                        <h3>Medieval Festival</h3>
+                        <p>Festival tahunan dengan acara berbagai macam!</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 18:00 WIB</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Central Plaza</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section id="leaderboard" class="leaderboard">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeInDown">
+                <i class="fas fa-trophy"></i> Leaderboard Pemain
+            </h2>
+            <div class="leaderboard-container">
+                <div class="leaderboard-header">
+                    <div class="rank">Rank</div>
+                    <div class="player">Player</div>
+                    <div class="score">Score</div>
+                    <div class="stats">Achievements</div>
+                </div>
+                <div class="leaderboard-body">
+                    <div class="leaderboard-item first-place">
+                        <div class="rank">1</div>
+                        <div class="player">
+                            <i class="fas fa-crown"></i> DragonSlayer
+                        </div>
+                        <div class="score">12,500</div>
+                        <div class="stats">32 Achievements</div>
+                    </div>
+                    <div class="leaderboard-item second-place">
+                        <div class="rank">2</div>
+                        <div class="player">
+                            <i class="fas fa-medal"></i> KnightOfTheNorth
+                        </div>
+                        <div class="score">11,200</div>
+                        <div class="stats">28 Achievements</div>
+                    </div>
+                    <div class="leaderboard-item third-place">
+                        <div class="rank">3</div>
+                        <div class="player">
+                            <i class="fas fa-medal"></i> BuilderMaster
+                        </div>
+                        <div class="score">9,800</div>
+                        <div class="stats">25 Achievements</div>
+                    </div>
+                    <div class="leaderboard-item">
+                        <div class="rank">4</div>
+                        <div class="player">
+                            <i class="fas fa-user"></i> ShadowHunter
+                        </div>
+                        <div class="score">8,500</div>
+                        <div class="stats">22 Achievements</div>
+                    </div>
+                    <div class="leaderboard-item">
+                        <div class="rank">5</div>
+                        <div class="player">
+                            <i class="fas fa-user"></i> AlchemistKing
+                        </div>
+                        <div class="score">7,200</div>
+                        <div class="stats">19 Achievements</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Preview -->
+    <section class="map-preview">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeInDown">
+                <i class="fas fa-map"></i> Preview Dunia Server
+            </h2>
+            <div class="map-container">
+                <div class="map-image-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <p>Map Preview Coming Soon</p>
+                    <div class="map-stats">
+                        <div class="stat">
+                            <i class="fas fa-mountain"></i>
+                            <span>Mountains: 15</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-tree"></i>
+                            <span>Forests: 28</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-water"></i>
+                            <span>Lakes: 12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-controls">
+                    <button class="btn btn-secondary"><i class="fas fa-expand"></i> Full Screen</button>
+                    <button class="btn btn-primary"><i class="fas fa-download"></i> Download Map</button>
                 </div>
             </div>
         </div>
@@ -153,9 +323,11 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Hubungi Kami</h2>
+            <h2 class="section-title animate__animated animate__fadeInDown">
+                <i class="fas fa-envelope"></i> Hubungi Kami
+            </h2>
             <div class="contact-container">
-                <div class="contact-info">
+                <div class="contact-info animate__animated animate__fadeInLeft">
                     <h3>Informasi Kontak</h3>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
@@ -169,13 +341,36 @@
                         <i class="fas fa-globe"></i>
                         <span>www.medieval-survival.net</span>
                     </div>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
-                <div class="contact-form">
+                <div class="contact-form animate__animated animate__fadeInRight">
                     <form id="contactForm">
-                        <input type="text" placeholder="Nama Anda" required>
-                        <input type="email" placeholder="Email Anda" required>
-                        <textarea placeholder="Pesan Anda" rows="5" required></textarea>
-                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                        <div class="form-group">
+                            <input type="text" placeholder="Nama Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Pilih Kategori</option>
+                                <option value="bug">Laporan Bug</option>
+                                <option value="suggestion">Saran</option>
+                                <option value="complaint">Keluhan</option>
+                                <option value="other">Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Pesan Anda" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Kirim Pesan
+                        </button>
                     </form>
                 </div>
             </div>
@@ -189,20 +384,45 @@
                 <div class="footer-logo">
                     <h3><i class="fas fa-crown"></i> Medieval Survival</h3>
                     <p>Server Minecraft Medieval Survival - Experience the Middle Ages</p>
+                    <div class="footer-stats">
+                        <span><i class="fas fa-users"></i> 1,250 Players</span>
+                        <span><i class="fas fa-server"></i> 24/7 Online</span>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#server">Server Info</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#leaderboard">Leaderboard</a></li>
+                    </ul>
                 </div>
                 <div class="footer-social">
-                    <a href="#"><i class="fab fa-discord"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Medieval Survival. All rights reserved.</p>
+                <p>&copy; 2024 Medieval Survival. All rights reserved. | Made with <i class="fas fa-heart"></i> for Medieval Fans</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop" class="scroll-top-btn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/main.js"></script>
+    <script src="js/server-api.js"></script>
+    <script src="js/leaderboard.js"></script>
+    <script src="js/events.js"></script>
 </body>
 </html>
