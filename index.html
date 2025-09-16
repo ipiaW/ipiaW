@@ -3,451 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waaaipi BLOG</title>
+    <title>Waaaipi!</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #6a11cb;
-            --secondary-color: #2575fc;
-            --accent-donation: #ff6b6b;
-            --accent-social: #4ecdc4;
-            --text-dark: #333;
-            --text-light: #777;
-            --background: #f9f9f9;
-            --card-bg: #ffffff;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
-
-        .dark-mode {
-            --primary-color: #8a2be2;
-            --secondary-color: #4a86e8;
-            --accent-donation: #ff8585;
-            --accent-social: #5cd6cf;
-            --text-dark: #f0f0f0;
-            --text-light: #b0b0b0;
-            --background: #121212;
-            --card-bg: #1e1e1e;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            transition: var(--transition);
-            color: var(--text-dark);
-            background-color: var(--background);
-        }
-
-        .container {
-            width: 100%;
-            max-width: 500px;
-            background-color: var(--card-bg);
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 50px;
-            height: 24px;
-            background: var(--secondary-color);
-            border-radius: 50px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            padding: 2px;
-            transition: var(--transition);
-        }
-
-        .theme-toggle::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: white;
-            transition: var(--transition);
-            transform: translateX(0);
-        }
-
-        .dark-mode .theme-toggle::before {
-            transform: translateX(26px);
-        }
-
-        .header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            padding: 40px 20px 60px;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 20%);
-            transform: rotate(30deg);
-            pointer-events: none;
-        }
-
-        .header h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-            font-weight: 700;
-            position: relative;
-            z-index: 1;
-        }
-
-        .header p {
-            font-size: 16px;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
-            max-width: 80%;
-            margin: 0 auto;
-        }
-
-        .profile {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: -60px;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 5px solid var(--card-bg);
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .profile-img i {
-            font-size: 50px;
-            color: white;
-        }
-
-        .links {
-            padding: 0 25px 30px;
-        }
-
-        .section-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin: 20px 0 15px;
-            padding-left: 10px;
-            border-left: 4px solid var(--primary-color);
-            color: var(--text-dark);
-        }
-
-        .link-card {
-            display: flex;
-            align-items: center;
-            background-color: var(--card-bg);
-            border-radius: 16px;
-            margin-bottom: 20px;
-            padding: 18px;
-            text-decoration: none;
-            color: var(--text-dark);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .link-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            transition: var(--transition);
-        }
-
-        .donasi::before {
-            background: var(--accent-donation);
-        }
-
-        .sosmed::before {
-            background: var(--accent-social);
-        }
-
-        .link-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .donasi:hover {
-            background: linear-gradient(to right, rgba(255, 107, 107, 0.1) 0%, transparent 100%);
-        }
-
-        .sosmed:hover {
-            background: linear-gradient(to right, rgba(78, 205, 196, 0.1) 0%, transparent 100%);
-        }
-
-        .icon {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 18px;
-            font-size: 22px;
-            transition: var(--transition);
-            flex-shrink: 0;
-        }
-
-        .donasi .icon {
-            background: linear-gradient(135deg, var(--accent-donation) 0%, #ff8e8e 100%);
-            color: white;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-        }
-
-        .sosmed .icon {
-            background: linear-gradient(135deg, var(--accent-social) 0%, #6de4dd 100%);
-            color: white;
-            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
-        }
-
-        .link-card:hover .icon {
-            transform: rotate(10deg) scale(1.1);
-        }
-
-        .link-text {
-            flex: 1;
-        }
-
-        .link-text h3 {
-            font-size: 18px;
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-
-        .link-text p {
-            font-size: 14px;
-            color: var(--text-light);
-            transition: var(--transition);
-        }
-
-        .link-card:hover .link-text p {
-            color: var(--text-dark);
-        }
-
-        .arrow {
-            margin-left: 10px;
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: var(--transition);
-            color: var(--primary-color);
-        }
-
-        .link-card:hover .arrow {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .footer {
-            text-align: center;
-            padding: 25px;
-            color: var(--text-light);
-            font-size: 14px;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            background-color: rgba(0, 0, 0, 0.02);
-        }
-
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 26px;
-            }
-            
-            .header p {
-                font-size: 14px;
-            }
-            
-            .profile-img {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .profile-img i {
-                font-size: 40px;
-            }
-            
-            .link-card {
-                padding: 15px;
-            }
-            
-            .icon {
-                width: 45px;
-                height: 45px;
-                font-size: 18px;
-                margin-right: 15px;
-            }
-            
-            .link-text h3 {
-                font-size: 16px;
-            }
-            
-            .link-text p {
-                font-size: 13px;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .link-card {
-            animation: fadeIn 0.5s ease-out forwards;
-            opacity: 0;
-        }
-
-        .link-card:nth-child(1) { animation-delay: 0.1s; }
-        .link-card:nth-child(2) { animation-delay: 0.2s; }
-        .link-card:nth-child(3) { animation-delay: 0.3s; }
-        .link-card:nth-child(4) { animation-delay: 0.4s; }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <div class="theme-toggle" id="themeToggle"></div>
+        <header>
+            <h1>Waaaipi!</h1>
+            <p>Terima kasih sudah berkunjung!</p>
+        </header>
         
-        <div class="header">
-            <h1>Link Donasi & Sosial Media</h1>
-            <p>Dukung kami melalui donasi atau ikuti perkembangan terbaru di sosial media</p>
-        </div>
-        
-        <div class="profile">
-            <div class="profile-img">
-                <i class="fas fa-heart"></i>
+        <main>
+            <div class="links-container">
+                <h2>Donasi</h2>
+                <div class="links-grid">
+                    <a href="https://trakteer.id" target="_blank" class="link-card trakteer">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <span>Trakteer</span>
+                    </a>
+                    
+                    <a href="https://saweria.co" target="_blank" class="link-card saweria">
+                        <i class="fas fa-coins"></i>
+                        <span>Saweria</span>
+                    </a>
+                </div>
+                
+                <h2>Sosial Media</h2>
+                <div class="links-grid">
+                    <a href="https://discord.com" target="_blank" class="link-card discord">
+                        <i class="fab fa-discord"></i>
+                        <span>Discord</span>
+                    </a>
+                    
+                    <a href="https://instagram.com" target="_blank" class="link-card instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                </div>
             </div>
-        </div>
+        </main>
         
-        <div class="links">
-            <h2 class="section-title">Donasi</h2>
-            <a href="#" class="link-card donasi">
-                <div class="icon">
-                    <i class="fas fa-donate"></i>
-                </div>
-                <div class="link-text">
-                    <h3>Donasi via PayPal</h3>
-                    <p>Dukung kami dengan donasi melalui PayPal</p>
-                </div>
-                <div class="arrow">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-            </a>
-            
-            <a href="#" class="link-card donasi">
-                <div class="icon">
-                    <i class="fas fa-hand-holding-usd"></i>
-                </div>
-                <div class="link-text">
-                    <h3>Donasi via Patreon</h3>
-                    <p>Jadilah patron kami dengan berdonasi di Patreon</p>
-                </div>
-                <div class="arrow">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-            </a>
-            
-            <h2 class="section-title">Sosial Media</h2>
-            <a href="#" class="link-card sosmed">
-                <div class="icon">
-                    <i class="fab fa-github"></i>
-                </div>
-                <div class="link-text">
-                    <h3>GitHub</h3>
-                    <p>Ikuti kami di GitHub untuk update project terbaru</p>
-                </div>
-                <div class="arrow">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-            </a>
-            
-            <a href="#" class="link-card sosmed">
-                <div class="icon">
-                    <i class="fab fa-instagram"></i>
-                </div>
-                <div class="link-text">
-                    <h3>Instagram</h3>
-                    <p>Ikuti kami di Instagram untuk update terbaru</p>
-                </div>
-                <div class="arrow">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-            </a>
-        </div>
-        
-        <div class="footer">
-            <p>&copy; 2023 Link Donasi & Sosial Media. All rights reserved.</p>
-        </div>
+        <footer>
+            <p>&copy; 2023 Waaaipi! - Semua link akan membuka tab baru</p>
+        </footer>
     </div>
-
-    <script>
-        // Toggle theme functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-        
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            
-            // Save theme preference to localStorage
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
-        });
-        
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            body.classList.add('dark-mode');
-        }
-    </script>
 </body>
 </html>
