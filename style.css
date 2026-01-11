@@ -1,12 +1,14 @@
-/* ===== VARIABLES & RESET ===== */
+/* ====== ELEGANT VARIABLES ====== */
 :root {
-    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-    --card-bg: rgba(255, 255, 255, 0.08);
-    --card-border: rgba(255, 255, 255, 0.15);
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.7);
-    --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --soft-pink: #ffd6e7;
+    --soft-purple: #d6d7ff;
+    --soft-blue: #c2e9fb;
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --text-dark: #4a4a6a;
+    --text-light: #6a6a8a;
+    --shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    --transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 * {
@@ -16,63 +18,97 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Poppins', sans-serif;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(135deg, #fff5f9 0%, #f5f7ff 50%, #e6f7ff 100%);
+    color: var(--text-dark);
     overflow: hidden;
 }
 
-/* ===== GRADIENT BACKGROUND ===== */
-.gradient-bg {
+/* ===== SOFT BACKGROUND SHAPES ===== */
+.soft-bg {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    background: var(--bg-gradient);
-    background-size: 400% 400%;
-    animation: gradientMove 15s ease infinite;
+    top: 0;
+    left: 0;
     z-index: -1;
 }
 
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.shape-1, .shape-2, .shape-3 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.4;
+    animation: floatShape 20s infinite ease-in-out;
 }
 
-/* ===== CARD ===== */
-.card {
-    background: var(--card-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--card-border);
-    border-radius: 24px;
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    background: var(--soft-pink);
+    top: -150px;
+    left: -150px;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--soft-purple);
+    bottom: -200px;
+    right: -200px;
+    animation-delay: 5s;
+}
+
+.shape-3 {
+    width: 250px;
+    height: 250px;
+    background: var(--soft-blue);
+    top: 50%;
+    left: 50%;
+    animation-delay: 10s;
+}
+
+@keyframes floatShape {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -30px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+/* ===== BEAUTIFUL CARD ===== */
+.beautiful-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
     padding: 50px 40px;
     width: 90%;
-    max-width: 420px;
+    max-width: 380px;
     box-shadow: var(--shadow);
-    transform: translateY(0);
+    position: relative;
+    overflow: hidden;
     transition: var(--transition);
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
-    border-color: rgba(255, 255, 255, 0.25);
+.beautiful-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
-/* ===== PROFILE ===== */
-.profile {
+/* ===== PROFILE SECTION ===== */
+.profile-section {
     text-align: center;
     margin-bottom: 40px;
 }
 
-.avatar-wrapper {
+.avatar-container {
     position: relative;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     margin: 0 auto 25px;
 }
 
@@ -81,142 +117,183 @@ body {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    position: relative;
-    z-index: 1;
+    border: 3px solid white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
 }
 
 .avatar:hover {
-    transform: scale(1.05);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
-.avatar-ring {
+.floating-badge {
     position: absolute;
-    top: -5px;
-    left: -5px;
-    width: 130px;
-    height: 130px;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 50%;
-    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
-    animation: rotate 4s linear infinite;
-    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.9em;
+    animation: floatBadge 3s ease-in-out infinite;
 }
 
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+@keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
 }
 
-.name {
-    font-size: 2.2em;
+.beautiful-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4em;
     font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 10px;
-    letter-spacing: -0.5px;
+    margin-bottom: 15px;
 }
 
-.bio {
-    font-size: 1.05em;
-    color: var(--text-secondary);
-    line-height: 1.5;
+.first-name {
+    color: var(--text-dark);
+    position: relative;
 }
 
-/* ===== LINK BUTTONS ===== */
-.links {
+.last-name {
+    color: #667eea;
+    margin-left: 8px;
+}
+
+.beautiful-bio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: var(--text-light);
+    font-size: 0.95em;
+    font-weight: 300;
+}
+
+.floating-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--soft-purple);
+    border-radius: 50%;
+    animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+}
+
+/* ===== SOCIAL BUTTONS ===== */
+.social-grid {
     display: flex;
     flex-direction: column;
     gap: 15px;
     margin-bottom: 30px;
 }
 
-.link-btn {
+.social-btn {
     position: relative;
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 16px 24px;
-    border-radius: 12px;
+    justify-content: center;
+    padding: 16px;
+    border-radius: 15px;
     text-decoration: none;
     color: white;
     font-weight: 500;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
     overflow: hidden;
     transition: var(--transition);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
 }
 
-.link-btn:hover {
-    transform: translateX(10px);
-    border-color: currentColor;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+.btn-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
 }
 
-.link-btn i {
-    font-size: 1.3em;
-    width: 24px;
-    text-align: center;
+.social-btn i {
+    font-size: 1.2em;
 }
 
-/* Warna Tombol */
-.saweria { color: #FFC107; }
-.youtube { color: #FF0000; }
-.discord { color: #5865F2; }
-.tiktok { color: #ffffff; }
-
-/* Ripple Effect */
-.ripple {
+.btn-glow {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
 }
 
-.link-btn:hover .ripple {
-    width: 300px;
-    height: 300px;
+.social-btn:hover .btn-glow {
+    transform: translateX(100%);
 }
 
-/* ===== FOOTER ===== */
-.footer {
+/* Warna tombol soft */
+.saweria-btn {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.2) 0%, rgba(255, 152, 0, 0.3) 100%);
+    color: #FF8F00;
+}
+
+.youtube-btn {
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.2) 0%, rgba(204, 0, 0, 0.3) 100%);
+    color: #E53935;
+}
+
+.discord-btn {
+    background: linear-gradient(135deg, rgba(88, 101, 242, 0.2) 0%, rgba(71, 82, 196, 0.3) 100%);
+    color: #3949AB;
+}
+
+.tiktok-btn {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(51, 51, 51, 0.3) 100%);
+    color: #212121;
+}
+
+/* ===== ELEGANT FOOTER ===== */
+.beautiful-footer {
     text-align: center;
-    color: var(--text-secondary);
-    font-size: 0.9em;
+    padding-top: 20px;
+    border-top: 1px solid var(--glass-border);
 }
 
-.footer i {
-    color: #ff4757;
-    margin: 0 5px;
-    animation: pulse 1.5s infinite;
+.footer-line {
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #667eea, transparent);
+    margin: 0 auto 15px;
+    border-radius: 1px;
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+.footer-text {
+    color: var(--text-light);
+    font-size: 0.85em;
+    font-weight: 300;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 480px) {
-    .card {
+    .beautiful-card {
         padding: 40px 30px;
-        width: 95%;
+        max-width: 320px;
     }
     
-    .name {
-        font-size: 1.8em;
+    .beautiful-name {
+        font-size: 2em;
     }
     
-    .avatar-wrapper {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .avatar-ring {
-        width: 110px;
-        height: 110px;
+    .avatar-container {
+        width: 80px;
+        height: 80px;
     }
 }
