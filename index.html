@@ -3,44 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Social Links</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome untuk ikon -->
+    <title>✨ Premium Link Bio</title>
+    
+    <!-- External Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-theme="dark">
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Aurora Background -->
+    <div class="aurora"></div>
+
+    <!-- Preloader with Logo -->
+    <div class="preloader">
+        <div class="preloader-logo">
+            <i class="fas fa-sparkles"></i>
+            <span>LOADING...</span>
+        </div>
+    </div>
+
+    <!-- Main Container -->
     <div class="container">
-        <div class="profile">
-            <img src="https://i.pravatar.cc/150?img=3" alt="Profile" class="profile-img">
-            <h1>Nama Anda</h1>
-            <p>Content Creator | Developer | Gamer</p>
-        </div>
+        <!-- Hero Profile Section -->
+        <section class="profile-section">
+            <div class="avatar-wrapper">
+                <div class="avatar-border"></div>
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&h=400&fit=crop&crop=face" alt="Profile" class="avatar-img">
+                <div class="avatar-pulse"></div>
+            </div>
+            
+            <h1 class="profile-name" data-splitting>NAMA ANDA</h1>
+            <p class="profile-title">Digital Creator & Visionary</p>
+            
+            <div class="profile-stats">
+                <div class="stat-item">
+                    <span class="stat-number">50K+</span>
+                    <span class="stat-label">Followers</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">1M+</span>
+                    <span class="stat-label">Views</span>
+                </div>
+            </div>
+        </section>
 
-        <div class="button-grid">
-            <a href="https://saweria.co/username" target="_blank" class="btn btn-saweria">
-                <i class="fas fa-coffee"></i>
-                <span>Saweria</span>
-            </a>
+        <!-- Premium Link Cards -->
+        <section class="links-section">
+            <div class="link-card" data-platform="saweria">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>SAWERIA</h3>
+                            <p>Support my work</p>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                    <div class="card-hover-bg"></div>
+                </div>
+            </div>
 
-            <a href="https://youtube.com/@username" target="_blank" class="btn btn-youtube">
-                <i class="fab fa-youtube"></i>
-                <span>YouTube</span>
-            </a>
+            <div class="link-card" data-platform="youtube">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>YOUTUBE</h3>
+                            <p>Watch & Subscribe</p>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                    <div class="card-hover-bg"></div>
+                </div>
+            </div>
 
-            <a href="https://discord.gg/invite" target="_blank" class="btn btn-discord">
-                <i class="fab fa-discord"></i>
-                <span>Discord</span>
-            </a>
+            <div class="link-card" data-platform="discord">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-icon">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>DISCORD</h3>
+                            <p>Join Community</p>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                    <div class="card-hover-bg"></div>
+                </div>
+            </div>
 
-            <a href="https://tiktok.com/@username" target="_blank" class="btn btn-tiktok">
-                <i class="fab fa-tiktok"></i>
-                <span>TikTok</span>
-            </a>
+            <div class="link-card" data-platform="tiktok">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-icon">
+                            <i class="fab fa-tiktok"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>TIKTOK</h3>
+                            <p>Follow & Share</p>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                    <div class="card-hover-bg"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Floating Action Button -->
+        <div class="fab-container">
+            <button class="fab-main">
+                <i class="fas fa-share-alt"></i>
+            </button>
+            <div class="fab-menu">
+                <a href="#" class="fab-item" title="Share">
+                    <i class="fas fa-share"></i>
+                </a>
+                <a href="#" class="fab-item" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
         </div>
     </div>
 
-    <div class="footer">
-        <p>&copy; 2024 | Made with <i class="fas fa-heart"></i> by Anda</p>
-    </div>
+    <!-- Particles Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
