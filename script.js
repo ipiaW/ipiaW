@@ -1,60 +1,45 @@
-// Gentle fade in on load
-window.addEventListener('load', () => {
-    document.querySelector('.beautiful-card').style.opacity = '0';
-    document.querySelector('.beautiful-card').style.transform = 'translateY(20px)';
-    
+// ===== STARRY MAGIC =====
+// Generate random stars
+const starsContainer = document.querySelector('.stars');
+for (let i = 0; i < 50; i++) {
+    const star = document.createElement('div');
+    star.style.position = 'absolute';
+    star.style.width = Math.random() * 3 + 'px';
+    star.style.height = star.style.width;
+    star.style.background = '#ffd700';
+    star.style.borderRadius = '50%';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.opacity = Math.random();
+    star.style.animation = `twinkle ${Math.random() * 5 + 3}s infinite`;
+    starsContainer.appendChild(star);
+}
+
+// Avatar magic on click
+document.querySelector('.stellar-avatar').addEventListener('click', function() {
+    this.style.animation = 'none';
     setTimeout(() => {
-        document.querySelector('.beautiful-card').style.transition = 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)';
-        document.querySelector('.beautiful-card').style.opacity = '1';
-        document.querySelector('.beautiful-card').style.transform = 'translateY(0)';
-    }, 200);
+        this.style.animation = 'avatarSparkle 0.5s ease-out';
+    }, 10);
 });
 
-// Name hover effect
-const nameEl = document.querySelector('.beautiful-name');
-nameEl.addEventListener('mouseenter', () => {
-    nameEl.style.transform = 'scale(1.02)';
-    nameEl.style.textShadow = '0 5px 15px rgba(102, 126, 234, 0.3)';
-});
-
-nameEl.addEventListener('mouseleave', () => {
-    nameEl.style.transform = 'scale(1)';
-    nameEl.style.textShadow = 'none';
-});
-
-// Button click effect
-document.querySelectorAll('.social-btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        // Create ripple at click position
-        const ripple = document.createElement('span');
-        ripple.style.position = 'absolute';
-        ripple.style.width = '10px';
-        ripple.style.height = '10px';
-        ripple.style.background = 'rgba(255, 255, 255, 0.5)';
-        ripple.style.borderRadius = '50%';
-        ripple.style.pointerEvents = 'none';
-        ripple.style.transform = 'translate(-50%, -50%)';
-        ripple.style.animation = 'rippleExpand 0.6s ease-out';
-        
-        const rect = this.getBoundingClientRect();
-        ripple.style.left = (e.clientX - rect.left) + 'px';
-        ripple.style.top = (e.clientY - rect.top) + 'px';
-        
-        this.appendChild(ripple);
-        
-        setTimeout(() => ripple.remove(), 600);
-    });
-});
-
-// Add ripple animation
+// Add sparkle animation
 const style = document.createElement('style');
 style.textContent = `
-    @keyframes rippleExpand {
-        to {
-            width: 100px;
-            height: 100px;
-            opacity: 0;
-        }
+    @keyframes avatarSparkle {
+        0% { transform: scale(1) rotate(0deg); }
+        50% { transform: scale(1.2) rotate(180deg); }
+        100% { transform: scale(1) rotate(360deg); }
     }
 `;
 document.head.appendChild(style);
+
+// Smooth hover for constellation
+document.querySelectorAll('.stellar-btn').forEach(btn => {
+    btn.addEventListener('mouseenter', function() {
+        this.style.background = 'rgba(255, 215, 0, 0.1)';
+    });
+    btn.addEventListener('mouseleave', function() {
+        this.style.background = 'var(--glass-dark)';
+    });
+});
