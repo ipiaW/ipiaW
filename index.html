@@ -3,59 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Digital Space</title>
+    <title>Your Beautiful Space</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="gradient-bg"></div>
+    <!-- Soft Background -->
+    <div class="soft-bg">
+        <div class="shape-1"></div>
+        <div class="shape-2"></div>
+        <div class="shape-3"></div>
+    </div>
 
-    <!-- Main Container -->
-    <main class="card">
-        <!-- Profile Section -->
-        <div class="profile">
-            <div class="avatar-wrapper">
-                <img src="https://i.pravatar.cc/150?img=3" alt="Profile" class="avatar">
-                <div class="avatar-ring"></div>
+    <!-- Main Card -->
+    <div class="beautiful-card">
+        <!-- Floating Profile -->
+        <div class="profile-section">
+            <div class="avatar-container">
+                <img src="https://i.pravatar.cc/150?img=25" alt="Profile" class="avatar">
+                <div class="floating-badge">
+                    <i class="fas fa-check"></i>
+                </div>
             </div>
-            <h1 class="name">Your Name</h1>
-            <p class="bio">Creating digital experiences with passion</p>
+            
+            <h1 class="beautiful-name">
+                <span class="first-name">Your</span>
+                <span class="last-name">Name</span>
+            </h1>
+            
+            <p class="beautiful-bio">
+                <span class="bio-text">Digital Creator</span>
+                <span class="floating-dot"></span>
+                <span class="bio-text">Dream Chaser</span>
+            </p>
         </div>
 
-        <!-- Social Links -->
-        <div class="links">
-            <a href="https://saweria.co/yourusername" target="_blank" class="link-btn saweria">
-                <i class="fas fa-coffee"></i>
-                <span>Saweria</span>
-                <div class="ripple"></div>
+        <!-- Elegant Social Links -->
+        <div class="social-grid">
+            <a href="https://saweria.co/yourusername" target="_blank" class="social-btn saweria-btn">
+                <div class="btn-content">
+                    <i class="fas fa-coffee"></i>
+                    <span>Saweria</span>
+                </div>
+                <div class="btn-glow"></div>
             </a>
 
-            <a href="https://youtube.com/@yourusername" target="_blank" class="link-btn youtube">
-                <i class="fab fa-youtube"></i>
-                <span>YouTube</span>
-                <div class="ripple"></div>
+            <a href="https://youtube.com/@yourusername" target="_blank" class="social-btn youtube-btn">
+                <div class="btn-content">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </div>
+                <div class="btn-glow"></div>
             </a>
 
-            <a href="https://discord.gg/yourinvite" target="_blank" class="link-btn discord">
-                <i class="fab fa-discord"></i>
-                <span>Discord</span>
-                <div class="ripple"></div>
+            <a href="https://discord.gg/yourinvite" target="_blank" class="social-btn discord-btn">
+                <div class="btn-content">
+                    <i class="fab fa-discord"></i>
+                    <span>Discord</span>
+                </div>
+                <div class="btn-glow"></div>
             </a>
 
-            <a href="https://tiktok.com/@yourusername" target="_blank" class="link-btn tiktok">
-                <i class="fab fa-tiktok"></i>
-                <span>TikTok</span>
-                <div class="ripple"></div>
+            <a href="https://tiktok.com/@yourusername" target="_blank" class="social-btn tiktok-btn">
+                <div class="btn-content">
+                    <i class="fab fa-tiktok"></i>
+                    <span>TikTok</span>
+                </div>
+                <div class="btn-glow"></div>
             </a>
         </div>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>Made with <i class="fas fa-heart"></i> & Code</p>
+        <!-- Elegant Footer -->
+        <footer class="beautiful-footer">
+            <div class="footer-line"></div>
+            <p class="footer-text">Created with love & magic ✨</p>
         </footer>
-    </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
