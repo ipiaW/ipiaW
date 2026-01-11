@@ -1,41 +1,60 @@
-// Smooth fade-in animation saat load
+// Gentle fade in on load
 window.addEventListener('load', () => {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
+    document.querySelector('.beautiful-card').style.opacity = '0';
+    document.querySelector('.beautiful-card').style.transform = 'translateY(20px)';
+    
     setTimeout(() => {
-        document.body.style.opacity = '1';
-    }, 100);
+        document.querySelector('.beautiful-card').style.transition = 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)';
+        document.querySelector('.beautiful-card').style.opacity = '1';
+        document.querySelector('.beautiful-card').style.transform = 'translateY(0)';
+    }, 200);
 });
 
-// Hover effect untuk nama (glow)
-const nameEl = document.querySelector('.name');
+// Name hover effect
+const nameEl = document.querySelector('.beautiful-name');
 nameEl.addEventListener('mouseenter', () => {
-    nameEl.style.textShadow = '0 0 20px rgba(255, 255, 255, 0.5)';
+    nameEl.style.transform = 'scale(1.02)';
+    nameEl.style.textShadow = '0 5px 15px rgba(102, 126, 234, 0.3)';
 });
+
 nameEl.addEventListener('mouseleave', () => {
+    nameEl.style.transform = 'scale(1)';
     nameEl.style.textShadow = 'none';
 });
 
-// Subtle parallax effect untuk card
-document.addEventListener('mousemove', (e) => {
-    const card = document.querySelector('.card');
-    const rect = card.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    
-    const deltaX = (e.clientX - centerX) / 30;
-    const deltaY = (e.clientY - centerY) / 30;
-    
-    card.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-});
-
-// Klik effect untuk tombol
-document.querySelectorAll('.link-btn').forEach(btn => {
+// Button click effect
+document.querySelectorAll('.social-btn').forEach(btn => {
     btn.addEventListener('click', function(e) {
-        // Animasi kecil saat diklik
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            this.style.transform = '';
-        }, 100);
+        // Create ripple at click position
+        const ripple = document.createElement('span');
+        ripple.style.position = 'absolute';
+        ripple.style.width = '10px';
+        ripple.style.height = '10px';
+        ripple.style.background = 'rgba(255, 255, 255, 0.5)';
+        ripple.style.borderRadius = '50%';
+        ripple.style.pointerEvents = 'none';
+        ripple.style.transform = 'translate(-50%, -50%)';
+        ripple.style.animation = 'rippleExpand 0.6s ease-out';
+        
+        const rect = this.getBoundingClientRect();
+        ripple.style.left = (e.clientX - rect.left) + 'px';
+        ripple.style.top = (e.clientY - rect.top) + 'px';
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => ripple.remove(), 600);
     });
 });
+
+// Add ripple animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes rippleExpand {
+        to {
+            width: 100px;
+            height: 100px;
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(style);
