@@ -3,184 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donasi & Media Sosial</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #000000;
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-        }
-        
-        h1 {
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        
-        .category {
-            margin-bottom: 40px;
-        }
-        
-        .category-title {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .category-title:after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 1px;
-            background-color: #ffffff;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        
-        .button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-            height: 60px;
-            background-color: transparent;
-            border: 2px solid #ffffff;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .button:hover {
-            background-color: #ffffff;
-            color: #000000;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
-        }
-        
-        .button:active {
-            transform: translateY(0);
-        }
-        
-        .icon {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-        
-        .footer {
-            margin-top: 50px;
-            font-size: 0.8rem;
-            color: #888888;
-            text-align: center;
-        }
-        
-        @media (max-width: 480px) {
-            .buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .button {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-    </style>
+    <title>My Social Links</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>Dukung & Ikuti</h1>
-        
-        <div class="category">
-            <h2 class="category-title">Donasi</h2>
-            <div class="buttons">
-                <a href="https://saweria.co/ipiaaaW" class="button">
-                    <span class="icon">💰</span>
-                    <span>Saweria</span>
-                </a>
-                <a href="https://saweria.co/ipiaaaW" class="button">
-                    <span class="icon">💸</span>
-                    <span>Trakteer</span>
-                </a>
-            </div>
+        <div class="profile">
+            <img src="https://i.pravatar.cc/150?img=3" alt="Profile" class="profile-img">
+            <h1>Nama Anda</h1>
+            <p>Content Creator | Developer | Gamer</p>
         </div>
-        
-        <div class="category">
-            <h2 class="category-title">Sosial Media</h2>
-            <div class="buttons">
-                <a href="https://www.instagram.com/w.a.i.p.i" class="button">
-                    <span class="icon">📷</span>
-                    <span>Instagram</span>
-                </a>
-                <a href="https://discord.gg/JFa2QEbBbd" class="button">
-                    <span class="icon">🐦</span>
-                    <span>Discord</span>
-                </a>
-            </div>
-        </div>
-        
-        <div class="footer">
-            <p>Website dengan tema hitam putih</p>
-            <p>Ganti URL pada atribut href untuk menautkan ke akun Anda</p>
+
+        <div class="button-grid">
+            <a href="https://saweria.co/username" target="_blank" class="btn btn-saweria">
+                <i class="fas fa-coffee"></i>
+                <span>Saweria</span>
+            </a>
+
+            <a href="https://youtube.com/@username" target="_blank" class="btn btn-youtube">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube</span>
+            </a>
+
+            <a href="https://discord.gg/invite" target="_blank" class="btn btn-discord">
+                <i class="fab fa-discord"></i>
+                <span>Discord</span>
+            </a>
+
+            <a href="https://tiktok.com/@username" target="_blank" class="btn btn-tiktok">
+                <i class="fab fa-tiktok"></i>
+                <span>TikTok</span>
+            </a>
         </div>
     </div>
 
-    <script>
-        // Menambahkan efek ripple pada tombol
-        document.querySelectorAll('.button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const x = e.clientX - e.target.getBoundingClientRect().left;
-                const y = e.clientY - e.target.getBoundingClientRect().top;
-                
-                const ripple = document.createElement('span');
-                ripple.classList.add('ripple');
-                ripple.style.left = `${x}px`;
-                ripple.style.top = `${y}px`;
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
-        });
-    </script>
+    <div class="footer">
+        <p>&copy; 2024 | Made with <i class="fas fa-heart"></i> by Anda</p>
+    </div>
 </body>
 </html>
