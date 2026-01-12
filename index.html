@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Links</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            --card-color: rgba(255, 255, 255, 0.95);
-            --text-color: #2d3436;
-            --text-light: #636e72;
-            --accent-color: #6c5ce7;
-            --border-color: rgba(255, 255, 255, 0.3);
-            --shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
-            --shadow-hover: 0 20px 40px rgba(50, 50, 93, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1);
+            --bg-color: linear-gradient(135deg, #ffe6f2 0%, #ffccdd 100%);
+            --card-color: rgba(255, 255, 255, 0.92);
+            --text-color: #5a3d5c;
+            --text-light: #9d7b9f;
+            --accent-color: #ff6b9d;
+            --border-color: rgba(255, 255, 255, 0.4);
+            --shadow: 0 15px 35px rgba(255, 150, 200, 0.15);
+            --shadow-hover: 0 20px 40px rgba(255, 150, 200, 0.25);
         }
 
         * {
@@ -39,7 +39,7 @@
             overflow-x: hidden;
         }
 
-        /* Latar belakang dekoratif */
+        /* Latar belakang dekoratif dengan pink pastel */
         .bg-decoration {
             position: fixed;
             top: 0;
@@ -48,32 +48,33 @@
             height: 100%;
             z-index: -1;
             pointer-events: none;
+            opacity: 0.7;
         }
 
         .circle {
             position: absolute;
             border-radius: 50%;
-            background: linear-gradient(135deg, rgba(108, 92, 231, 0.1) 0%, rgba(155, 89, 182, 0.1) 100%);
+            background: radial-gradient(circle, rgba(255, 182, 193, 0.3) 0%, rgba(255, 182, 193, 0) 70%);
         }
 
         .circle:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            top: -150px;
-            right: -100px;
+            width: 400px;
+            height: 400px;
+            top: -200px;
+            right: -150px;
         }
 
         .circle:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            bottom: -80px;
-            left: -50px;
+            width: 300px;
+            height: 300px;
+            bottom: -150px;
+            left: -100px;
         }
 
         .circle:nth-child(3) {
-            width: 150px;
-            height: 150px;
-            top: 50%;
+            width: 250px;
+            height: 250px;
+            top: 30%;
             left: 10%;
         }
 
@@ -85,14 +86,14 @@
             box-shadow: var(--shadow);
             padding: 50px 40px;
             text-align: center;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
             z-index: 1;
         }
 
-        /* Efek kilau */
+        /* Efek gradien atas dengan warna pink */
         .container::before {
             content: '';
             position: absolute;
@@ -100,14 +101,14 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, #ff6b35, #ffa62e, #ff0000, #5865f2, #000000, #6c5ce7);
-            background-size: 400% 100%;
-            animation: shimmer 8s linear infinite;
+            background: linear-gradient(90deg, #ffb6c1, #ffc0cb, #ffccdd, #ffd6e7, #ffccdd, #ffc0cb, #ffb6c1);
+            background-size: 300% 100%;
+            animation: shimmer 6s linear infinite;
         }
 
         @keyframes shimmer {
             0% { background-position: 0% 0%; }
-            100% { background-position: 400% 0%; }
+            100% { background-position: 300% 0%; }
         }
 
         .profile {
@@ -122,7 +123,7 @@
             margin: 0 auto 25px;
             overflow: hidden;
             border: 4px solid white;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(255, 150, 200, 0.2);
             position: relative;
             transition: transform 0.5s ease;
         }
@@ -139,11 +140,11 @@
         }
 
         h1 {
-            font-family: 'DM Serif Display', serif;
+            font-family: 'Playfair Display', serif;
             font-size: 36px;
-            font-weight: 400;
+            font-weight: 500;
             margin-bottom: 10px;
-            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -175,8 +176,8 @@
             font-weight: 500;
             font-size: 17px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background-color: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 5px 15px rgba(255, 150, 200, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.8);
             position: relative;
             overflow: hidden;
@@ -189,7 +190,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
             opacity: 0;
             transition: opacity 0.4s ease;
         }
@@ -212,7 +213,7 @@
             margin-right: 20px;
             font-size: 22px;
             border-radius: 14px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #ffe6f2 0%, #ffccdd 100%);
             color: var(--text-color);
             transition: all 0.4s ease;
             z-index: 1;
@@ -241,28 +242,28 @@
             color: var(--accent-color);
         }
 
-        /* Warna khusus untuk setiap tombol */
+        /* Warna khusus untuk setiap tombol dengan tema pink */
         .saweria:hover {
             border-color: rgba(255, 107, 53, 0.2);
-            background: linear-gradient(to right, white, rgba(255, 107, 53, 0.03));
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 107, 53, 0.05));
         }
 
         .youtube:hover {
             border-color: rgba(255, 0, 0, 0.2);
-            background: linear-gradient(to right, white, rgba(255, 0, 0, 0.03));
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 0, 0, 0.05));
         }
 
         .discord:hover {
             border-color: rgba(88, 101, 242, 0.2);
-            background: linear-gradient(to right, white, rgba(88, 101, 242, 0.03));
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(88, 101, 242, 0.05));
         }
 
         .tiktok:hover {
             border-color: rgba(0, 0, 0, 0.2);
-            background: linear-gradient(to right, white, rgba(0, 0, 0, 0.03));
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.05));
         }
 
-        /* Ikon dengan warna brand */
+        /* Ikon dengan warna brand dan background pink pastel */
         .saweria .link-icon {
             color: #ff6b35;
             background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 166, 46, 0.1) 100%);
@@ -289,7 +290,7 @@
             color: var(--text-light);
             font-size: 14px;
             padding-top: 25px;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-top: 1px solid rgba(255, 182, 193, 0.3);
             width: 100%;
             font-weight: 300;
         }
@@ -315,14 +316,14 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.6);
         }
 
         .social-icons a:hover {
             color: var(--accent-color);
             transform: translateY(-5px);
             background: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(255, 150, 200, 0.2);
         }
 
         /* Animasi untuk elemen */
@@ -347,6 +348,24 @@
         .link-button:nth-child(3) { animation-delay: 0.3s; }
         .link-button:nth-child(4) { animation-delay: 0.4s; }
         footer { animation-delay: 0.5s; }
+
+        /* Efek bunga jatuh */
+        .flower {
+            position: fixed;
+            top: -50px;
+            font-size: 20px;
+            color: rgba(255, 182, 193, 0.5);
+            z-index: 0;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
 
         /* Responsive design */
         @media (max-width: 700px) {
@@ -398,81 +417,76 @@
             }
         }
 
-        /* Mode gelap */
+        /* Mode gelap dengan tema pink tua */
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg-color: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-                --card-color: rgba(30, 30, 46, 0.9);
-                --text-color: #f0f0f0;
-                --text-light: #a0a0c0;
+                --bg-color: linear-gradient(135deg, #4a2c40 0%, #6d3b5e 100%);
+                --card-color: rgba(90, 61, 92, 0.9);
+                --text-color: #ffe6f2;
+                --text-light: #d8b4d8;
                 --border-color: rgba(255, 255, 255, 0.1);
-                --shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-                --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.4);
+                --shadow: 0 15px 35px rgba(90, 61, 92, 0.3);
+                --shadow-hover: 0 20px 40px rgba(90, 61, 92, 0.5);
             }
             
             .link-button {
-                background-color: rgba(40, 40, 60, 0.8);
+                background-color: rgba(110, 80, 112, 0.8);
                 border: 1px solid rgba(255, 255, 255, 0.05);
             }
             
             .link-icon {
-                background: linear-gradient(135deg, rgba(60, 60, 80, 0.8) 0%, rgba(40, 40, 60, 0.8) 100%);
+                background: linear-gradient(135deg, rgba(157, 123, 159, 0.3) 0%, rgba(110, 80, 112, 0.3) 100%);
             }
             
             .saweria:hover {
-                background: linear-gradient(to right, rgba(40, 40, 60, 0.8), rgba(255, 107, 53, 0.1));
+                background: linear-gradient(to right, rgba(110, 80, 112, 0.8), rgba(255, 107, 53, 0.15));
             }
             
             .youtube:hover {
-                background: linear-gradient(to right, rgba(40, 40, 60, 0.8), rgba(255, 0, 0, 0.1));
+                background: linear-gradient(to right, rgba(110, 80, 112, 0.8), rgba(255, 0, 0, 0.15));
             }
             
             .discord:hover {
-                background: linear-gradient(to right, rgba(40, 40, 60, 0.8), rgba(88, 101, 242, 0.1));
+                background: linear-gradient(to right, rgba(110, 80, 112, 0.8), rgba(88, 101, 242, 0.15));
             }
             
             .tiktok:hover {
-                background: linear-gradient(to right, rgba(40, 40, 60, 0.8), rgba(0, 0, 0, 0.1));
+                background: linear-gradient(to right, rgba(110, 80, 112, 0.8), rgba(0, 0, 0, 0.15));
             }
             
             .circle {
-                background: linear-gradient(135deg, rgba(108, 92, 231, 0.15) 0%, rgba(155, 89, 182, 0.15) 100%);
+                background: radial-gradient(circle, rgba(157, 123, 159, 0.2) 0%, rgba(157, 123, 159, 0) 70%);
             }
             
             .social-icons a {
-                background: rgba(60, 60, 80, 0.5);
+                background: rgba(157, 123, 159, 0.3);
             }
             
             .social-icons a:hover {
-                background: rgba(80, 80, 100, 0.8);
+                background: rgba(157, 123, 159, 0.5);
             }
-        }
-
-        /* Efek partikel kecil */
-        .particle {
-            position: absolute;
-            background: rgba(108, 92, 231, 0.1);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -1;
+            
+            .flower {
+                color: rgba(157, 123, 159, 0.4);
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Latar belakang dekoratif -->
+    <!-- Latar belakang dekoratif dengan pink pastel -->
     <div class="bg-decoration">
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
     </div>
     
-    <!-- Partikel kecil -->
-    <div id="particles"></div>
+    <!-- Efek bunga jatuh -->
+    <div id="flowers"></div>
     
     <div class="container">
         <div class="profile">
             <div class="avatar-container">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Avatar" class="avatar">
+                <img src="https://images.unsplash.com/photo-1521146764736-56c929d59c83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Avatar" class="avatar">
             </div>
             <h1>Connect With Me</h1>
             <p class="description">
@@ -536,61 +550,37 @@
     </div>
 
     <script>
-        // Efek partikel kecil di background
+        // Efek bunga jatuh
         document.addEventListener('DOMContentLoaded', function() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 20;
+            const flowersContainer = document.getElementById('flowers');
+            const flowerCount = 12;
+            const flowerIcons = ['❀', '✿', '❁', '🌸', '💮', '🏵️'];
             
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
+            for (let i = 0; i < flowerCount; i++) {
+                const flower = document.createElement('div');
+                flower.classList.add('flower');
+                
+                // Pilih ikon bunga acak
+                const icon = flowerIcons[Math.floor(Math.random() * flowerIcons.length)];
+                flower.textContent = icon;
+                
+                // Posisi horizontal acak
+                flower.style.left = `${Math.random() * 100}vw`;
                 
                 // Ukuran acak
-                const size = Math.random() * 10 + 3;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
+                const size = Math.random() * 25 + 15;
+                flower.style.fontSize = `${size}px`;
                 
-                // Posisi acak
-                particle.style.left = `${Math.random() * 100}vw`;
-                particle.style.top = `${Math.random() * 100}vh`;
-                
-                // Animasi melayang
-                const duration = Math.random() * 20 + 20;
+                // Durasi dan delay animasi acak
+                const duration = Math.random() * 10 + 8;
                 const delay = Math.random() * 5;
-                particle.style.animation = `float ${duration}s infinite linear ${delay}s`;
+                flower.style.animation = `fall ${duration}s linear infinite ${delay}s`;
                 
-                // Warna acak berdasarkan mode
-                const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                const colors = isDarkMode 
-                    ? ['rgba(108, 92, 231, 0.2)', 'rgba(155, 89, 182, 0.2)', 'rgba(86, 98, 246, 0.2)']
-                    : ['rgba(108, 92, 231, 0.15)', 'rgba(255, 107, 53, 0.15)', 'rgba(255, 0, 0, 0.1)'];
+                // Opasitas acak
+                flower.style.opacity = Math.random() * 0.4 + 0.3;
                 
-                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                
-                particlesContainer.appendChild(particle);
+                flowersContainer.appendChild(flower);
             }
-            
-            // Animasi float untuk partikel
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes float {
-                    0% {
-                        transform: translateY(0) translateX(0) rotate(0deg);
-                        opacity: 0;
-                    }
-                    10% {
-                        opacity: 0.7;
-                    }
-                    90% {
-                        opacity: 0.7;
-                    }
-                    100% {
-                        transform: translateY(-100vh) translateX(100px) rotate(360deg);
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(style);
             
             // Efek klik pada tombol
             const buttons = document.querySelectorAll('.link-button');
@@ -607,6 +597,27 @@
                     setTimeout(() => {
                         this.style.transform = 'translateY(-6px)';
                     }, 150);
+                    
+                    // Tambahkan efek hati kecil
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '❤️';
+                    heart.style.position = 'absolute';
+                    heart.style.fontSize = '20px';
+                    heart.style.zIndex = '1000';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.animation = 'floatUp 1s ease-out forwards';
+                    
+                    // Posisi hati di atas tombol
+                    const rect = this.getBoundingClientRect();
+                    heart.style.left = `${rect.left + rect.width/2 - 10}px`;
+                    heart.style.top = `${rect.top}px`;
+                    
+                    document.body.appendChild(heart);
+                    
+                    // Hapus hati setelah animasi selesai
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 1000);
                     
                     // Buka link setelah delay
                     setTimeout(() => {
@@ -646,16 +657,34 @@
             const avatar = document.querySelector('.avatar-container');
             avatar.addEventListener('mouseenter', function() {
                 this.style.transform = 'scale(1.05)';
+                this.style.boxShadow = '0 15px 30px rgba(255, 150, 200, 0.3)';
             });
             
             avatar.addEventListener('mouseleave', function() {
                 this.style.transform = 'scale(1)';
+                this.style.boxShadow = '0 10px 25px rgba(255, 150, 200, 0.2)';
             });
         });
         
+        // Tambahkan animasi untuk hati yang melayang
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                0% {
+                    transform: translateY(0) scale(1);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-50px) scale(0.5);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
         // Deteksi perubahan mode gelap/terang
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
-            // Refresh partikel untuk mengupdate warna
+            // Refresh efek bunga untuk mengupdate warna
             location.reload();
         });
     </script>
