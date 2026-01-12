@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Links</title>
+    <title>Social Media Links</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,7 +14,7 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #f8f9ff 0%, #eef1ff 100%);
             color: #333;
             min-height: 100vh;
@@ -23,15 +23,14 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             width: 100%;
             padding: 40px 30px;
             text-align: center;
-            position: relative;
         }
 
         .header {
@@ -39,31 +38,33 @@
         }
 
         .title {
-            font-family: 'Inter', sans-serif;
-            font-size: 32px;
-            font-weight: 600;
+            font-size: 36px;
+            font-weight: 700;
             color: #2d3748;
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .subtitle {
-            font-size: 16px;
+            font-size: 18px;
             color: #718096;
             font-weight: 400;
-            max-width: 500px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        .links-horizontal {
+        .links-container {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             flex-wrap: wrap;
         }
 
-        .social-button-horizontal {
+        .social-button {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -74,71 +75,53 @@
             color: white;
             font-weight: 600;
             font-size: 16px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            border: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            min-width: 180px;
-            min-height: 140px;
-            flex: 1;
-            max-width: 220px;
+            min-width: 200px;
+            min-height: 150px;
         }
 
-        .social-button-horizontal::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .social-button-horizontal:hover::before {
-            opacity: 1;
-        }
-
-        .social-button-horizontal:hover {
-            transform: translateY(-10px) scale(1.05);
+        .social-button:hover {
+            transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
-        .social-icon-horizontal {
-            font-size: 32px;
+        .social-icon {
+            font-size: 36px;
             margin-bottom: 15px;
-            transition: transform 0.4s ease;
+            transition: transform 0.3s ease;
         }
 
-        .social-button-horizontal:hover .social-icon-horizontal {
-            transform: scale(1.2) rotate(5deg);
+        .social-button:hover .social-icon {
+            transform: scale(1.2);
         }
 
-        .social-text-horizontal {
-            font-size: 15px;
+        .social-text {
+            font-size: 16px;
             letter-spacing: 0.5px;
-            font-weight: 500;
         }
 
         /* Warna untuk setiap tombol */
-        .saweria-horizontal {
+        .saweria {
             background: linear-gradient(135deg, #FF6B35 0%, #FFA62E 100%);
         }
 
-        .tiktok-horizontal {
+        .tiktok {
             background: linear-gradient(135deg, #000000 0%, #25F4EE 50%, #FE2C55 100%);
             background-size: 200% 200%;
             animation: tiktok-gradient 3s ease infinite;
         }
 
-        .youtube-horizontal {
+        .youtube {
             background: linear-gradient(135deg, #FF0000 0%, #C4302B 100%);
         }
 
-        .discord-horizontal {
+        .discord {
             background: linear-gradient(135deg, #5865F2 0%, #7289DA 100%);
         }
 
@@ -160,112 +143,91 @@
             width: 100%;
         }
 
-        /* Animasi untuk elemen */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .header, .social-button-horizontal, footer {
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-        }
-
-        .social-button-horizontal:nth-child(1) { animation-delay: 0.1s; }
-        .social-button-horizontal:nth-child(2) { animation-delay: 0.2s; }
-        .social-button-horizontal:nth-child(3) { animation-delay: 0.3s; }
-        .social-button-horizontal:nth-child(4) { animation-delay: 0.4s; }
-        footer { animation-delay: 0.5s; }
-
         /* Responsive design */
-        @media (max-width: 900px) {
-            .links-horizontal {
-                gap: 15px;
-            }
-            
-            .social-button-horizontal {
-                min-width: 160px;
-                min-height: 130px;
+        @media (max-width: 1100px) {
+            .social-button {
+                min-width: 180px;
+                min-height: 140px;
                 padding: 25px 20px;
             }
             
-            .social-icon-horizontal {
-                font-size: 28px;
+            .social-icon {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .links-container {
+                gap: 15px;
             }
             
-            .social-text-horizontal {
-                font-size: 14px;
+            .social-button {
+                min-width: 160px;
+                min-height: 130px;
+                padding: 22px 18px;
+            }
+            
+            .title {
+                font-size: 32px;
+            }
+            
+            .subtitle {
+                font-size: 17px;
             }
         }
 
         @media (max-width: 768px) {
-            .links-horizontal {
-                flex-direction: column;
-                align-items: center;
-                max-width: 400px;
-                margin-left: auto;
-                margin-right: auto;
+            .links-container {
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
-            .social-button-horizontal {
-                width: 100%;
-                max-width: 400px;
+            .social-button {
+                min-width: 45%;
+                max-width: 200px;
                 min-height: 120px;
-                padding: 25px;
-                flex-direction: row;
-                justify-content: flex-start;
-                gap: 20px;
             }
             
-            .social-icon-horizontal {
-                margin-bottom: 0;
-                font-size: 30px;
-                width: 50px;
-                text-align: center;
-            }
-            
-            .social-text-horizontal {
-                font-size: 16px;
-                text-align: left;
-                flex: 1;
+            .container {
+                padding: 30px 20px;
             }
             
             .title {
                 font-size: 28px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 25px 15px;
-            }
-            
-            .title {
-                font-size: 24px;
             }
             
             .subtitle {
-                font-size: 15px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .links-container {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .social-button-horizontal {
-                padding: 20px;
+            .social-button {
+                width: 100%;
+                max-width: 300px;
                 min-height: 110px;
+                flex-direction: row;
+                justify-content: flex-start;
+                padding: 20px 25px;
             }
             
-            .social-icon-horizontal {
-                font-size: 28px;
-                width: 45px;
+            .social-icon {
+                margin-bottom: 0;
+                margin-right: 20px;
+                font-size: 30px;
             }
             
-            .social-text-horizontal {
-                font-size: 15px;
+            .social-text {
+                font-size: 17px;
+            }
+            
+            .title {
+                font-size: 26px;
             }
         }
 
@@ -277,7 +239,10 @@
             }
             
             .title {
-                color: #e2e8f0;
+                background: linear-gradient(135deg, #a78bfa 0%, #c4b5fd 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
             }
             
             .subtitle {
@@ -290,311 +255,235 @@
             }
         }
 
-        /* Efek ripple untuk tombol */
-        .ripple {
+        /* Efek hover tambahan */
+        .social-button::after {
+            content: '';
             position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(0);
-            animation: rippleEffect 0.6s linear;
-            pointer-events: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        @keyframes rippleEffect {
-            to {
-                transform: scale(4);
+        .social-button:hover::after {
+            opacity: 1;
+        }
+        
+        /* Animasi masuk */
+        @keyframes fadeIn {
+            from {
                 opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-
-        /* Dekorasi background minimal */
-        .bg-element {
-            position: fixed;
-            border-radius: 50%;
-            z-index: -1;
-            opacity: 0.05;
-        }
-
-        .bg-element:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            background: #FF6B35;
-            top: -100px;
-            right: -100px;
-        }
-
-        .bg-element:nth-child(2) {
-            width: 250px;
-            height: 250px;
-            background: #5865F2;
-            bottom: -80px;
-            left: -80px;
-        }
-
-        .bg-element:nth-child(3) {
-            width: 200px;
-            height: 200px;
-            background: #FF0000;
-            top: 40%;
-            left: 10%;
+        
+        .social-button {
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
         }
         
-        .bg-element:nth-child(4) {
-            width: 180px;
-            height: 180px;
-            background: #000000;
-            bottom: 30%;
-            right: 10%;
-        }
+        .social-button:nth-child(1) { animation-delay: 0.1s; }
+        .social-button:nth-child(2) { animation-delay: 0.2s; }
+        .social-button:nth-child(3) { animation-delay: 0.3s; }
+        .social-button:nth-child(4) { animation-delay: 0.4s; }
         
-        /* Versi tombol horizontal alternatif */
-        .links-row {
+        /* Tombol baris horizontal (alternatif) */
+        .horizontal-buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 50px;
+            margin: 50px auto;
+            max-width: 1000px;
         }
         
-        .social-button-row {
+        .horizontal-button {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px 30px;
-            border-radius: 15px;
+            padding: 18px 30px;
+            border-radius: 12px;
             text-decoration: none;
             color: white;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 15px;
             transition: all 0.3s ease;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            border: none;
+            border: 2px solid transparent;
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            min-width: 160px;
+            flex: 1;
+            min-width: 180px;
+            max-width: 220px;
         }
         
-        .social-button-row:hover {
+        .horizontal-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
         }
         
-        .social-icon-row {
+        .horizontal-icon {
             font-size: 24px;
-            margin-right: 10px;
+            margin-right: 12px;
         }
         
-        .social-text-row {
-            font-size: 15px;
-        }
-        
-        /* Warna untuk tombol versi row */
-        .saweria-row {
-            background: linear-gradient(to right, #FF6B35 0%, #FFA62E 100%);
-        }
-
-        .tiktok-row {
-            background: linear-gradient(to right, #000000 0%, #25F4EE 50%, #FE2C55 100%);
-            background-size: 200% 100%;
-            animation: tiktok-gradient-row 3s ease infinite;
-        }
-
-        .youtube-row {
-            background: linear-gradient(to right, #FF0000 0%, #C4302B 100%);
-        }
-
-        .discord-row {
-            background: linear-gradient(to right, #5865F2 0%, #7289DA 100%);
-        }
-        
-        @keyframes tiktok-gradient-row {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        /* Untuk mobile, tombol row menjadi vertikal */
         @media (max-width: 768px) {
-            .links-row {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
+            .horizontal-buttons {
+                flex-wrap: wrap;
             }
             
-            .social-button-row {
+            .horizontal-button {
+                min-width: 45%;
+                margin-bottom: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .horizontal-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .horizontal-button {
                 width: 100%;
                 max-width: 300px;
-                justify-content: center;
-                padding: 18px 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Dekorasi background minimal -->
-    <div class="bg-element"></div>
-    <div class="bg-element"></div>
-    <div class="bg-element"></div>
-    <div class="bg-element"></div>
-    
     <div class="container">
         <div class="header">
-            <h1 class="title">Social Links</h1>
-            <p class="subtitle">Connect with me on different platforms for content, support, and community</p>
+            <h1 class="title">Social Media Links</h1>
+            <p class="subtitle">Connect with me across different platforms for exclusive content and updates</p>
         </div>
         
-        <!-- Versi 1: Tombol horizontal dengan ikon di atas teks -->
-        <div class="links-horizontal">
-            <a href="https://saweria.co" target="_blank" class="social-button-horizontal saweria-horizontal">
-                <div class="social-icon-horizontal">
+        <!-- Versi 1: Tombol dengan ikon besar di atas teks -->
+        <div class="links-container">
+            <a href="https://saweria.co" target="_blank" class="social-button saweria">
+                <div class="social-icon">
                     <i class="fas fa-heart"></i>
                 </div>
-                <div class="social-text-horizontal">Saweria</div>
+                <div class="social-text">Saweria</div>
             </a>
             
-            <a href="https://tiktok.com" target="_blank" class="social-button-horizontal tiktok-horizontal">
-                <div class="social-icon-horizontal">
+            <a href="https://tiktok.com" target="_blank" class="social-button tiktok">
+                <div class="social-icon">
                     <i class="fab fa-tiktok"></i>
                 </div>
-                <div class="social-text-horizontal">TikTok</div>
+                <div class="social-text">TikTok</div>
             </a>
             
-            <a href="https://youtube.com" target="_blank" class="social-button-horizontal youtube-horizontal">
-                <div class="social-icon-horizontal">
+            <a href="https://youtube.com" target="_blank" class="social-button youtube">
+                <div class="social-icon">
                     <i class="fab fa-youtube"></i>
                 </div>
-                <div class="social-text-horizontal">YouTube</div>
+                <div class="social-text">YouTube</div>
             </a>
             
-            <a href="https://discord.com" target="_blank" class="social-button-horizontal discord-horizontal">
-                <div class="social-icon-horizontal">
+            <a href="https://discord.com" target="_blank" class="social-button discord">
+                <div class="social-icon">
                     <i class="fab fa-discord"></i>
                 </div>
-                <div class="social-text-horizontal">Discord</div>
+                <div class="social-text">Discord</div>
             </a>
         </div>
         
         <!-- Versi 2: Tombol horizontal dengan ikon dan teks sejajar -->
-        <div class="links-row">
-            <a href="https://saweria.co" target="_blank" class="social-button-row saweria-row">
-                <div class="social-icon-row">
+        <div class="horizontal-buttons">
+            <a href="https://saweria.co" target="_blank" class="horizontal-button saweria">
+                <div class="horizontal-icon">
                     <i class="fas fa-heart"></i>
                 </div>
-                <div class="social-text-row">Saweria</div>
+                <div class="social-text">Saweria</div>
             </a>
             
-            <a href="https://tiktok.com" target="_blank" class="social-button-row tiktok-row">
-                <div class="social-icon-row">
+            <a href="https://tiktok.com" target="_blank" class="horizontal-button tiktok">
+                <div class="horizontal-icon">
                     <i class="fab fa-tiktok"></i>
                 </div>
-                <div class="social-text-row">TikTok</div>
+                <div class="social-text">TikTok</div>
             </a>
             
-            <a href="https://youtube.com" target="_blank" class="social-button-row youtube-row">
-                <div class="social-icon-row">
+            <a href="https://youtube.com" target="_blank" class="horizontal-button youtube">
+                <div class="horizontal-icon">
                     <i class="fab fa-youtube"></i>
                 </div>
-                <div class="social-text-row">YouTube</div>
+                <div class="social-text">YouTube</div>
             </a>
             
-            <a href="https://discord.com" target="_blank" class="social-button-row discord-row">
-                <div class="social-icon-row">
+            <a href="https://discord.com" target="_blank" class="horizontal-button discord">
+                <div class="horizontal-icon">
                     <i class="fab fa-discord"></i>
                 </div>
-                <div class="social-text-row">Discord</div>
+                <div class="social-text">Discord</div>
             </a>
         </div>
         
         <footer>
-            <p>© 2023 • All social media links</p>
-            <p style="margin-top: 5px; font-size: 12px;">Tombol horizontal dengan 4 platform media sosial</p>
+            <p>© 2023 • All Social Media Links</p>
+            <p style="margin-top: 8px; font-size: 13px;">Saweria • TikTok • YouTube • Discord</p>
         </footer>
     </div>
 
     <script>
-        // Efek ripple untuk tombol
+        // Animasi tombol saat halaman dimuat
         document.addEventListener('DOMContentLoaded', function() {
-            const buttons = document.querySelectorAll('.social-button-horizontal, .social-button-row');
+            const buttons = document.querySelectorAll('.social-button, .horizontal-button');
             
+            // Efek hover untuk ikon
             buttons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    // Buat efek ripple
-                    const ripple = document.createElement('span');
-                    const rect = this.getBoundingClientRect();
-                    const size = Math.max(rect.width, rect.height);
-                    const x = e.clientX - rect.left - size / 2;
-                    const y = e.clientY - rect.top - size / 2;
-                    
-                    ripple.classList.add('ripple');
-                    ripple.style.width = `${size}px`;
-                    ripple.style.height = `${size}px`;
-                    ripple.style.top = `${y}px`;
-                    ripple.style.left = `${x}px`;
-                    
-                    this.appendChild(ripple);
-                    
-                    // Hapus ripple setelah animasi selesai
-                    setTimeout(() => {
-                        ripple.remove();
-                    }, 600);
-                    
-                    // Efek tekan untuk tombol horizontal
-                    if (this.classList.contains('social-button-horizontal')) {
-                        this.style.transform = 'translateY(-5px) scale(0.98)';
-                        
-                        setTimeout(() => {
-                            this.style.transform = 'translateY(-10px) scale(1.05)';
-                        }, 150);
+                button.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('.social-icon, .horizontal-icon');
+                    if (icon) {
+                        icon.style.transform = 'scale(1.2)';
                     }
-                    
-                    // Efek tekan untuk tombol row
-                    if (this.classList.contains('social-button-row')) {
-                        this.style.transform = 'translateY(-3px) scale(0.98)';
-                        
-                        setTimeout(() => {
-                            this.style.transform = 'translateY(-5px)';
-                        }, 150);
-                    }
-                    
-                    // Buka link setelah delay kecil
-                    setTimeout(() => {
-                        window.open(this.href, '_blank');
-                    }, 300);
                 });
                 
-                // Efek hover untuk ikon tombol horizontal
-                if (button.classList.contains('social-button-horizontal')) {
-                    button.addEventListener('mouseenter', function() {
-                        const icon = this.querySelector('.social-icon-horizontal');
-                        icon.style.transform = 'scale(1.2) rotate(5deg)';
-                    });
+                button.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('.social-icon, .horizontal-icon');
+                    if (icon) {
+                        icon.style.transform = 'scale(1)';
+                    }
+                });
+                
+                // Efek klik
+                button.addEventListener('click', function(e) {
+                    // Efek visual saat diklik
+                    this.style.transform = 'translateY(-2px) scale(0.98)';
                     
-                    button.addEventListener('mouseleave', function() {
-                        const icon = this.querySelector('.social-icon-horizontal');
-                        if (!this.classList.contains('clicked')) {
-                            icon.style.transform = 'scale(1) rotate(0deg)';
-                        }
-                    });
-                }
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-10px)';
+                    }, 100);
+                    
+                    // Buka link di tab baru setelah delay kecil
+                    setTimeout(() => {
+                        window.open(this.href, '_blank');
+                    }, 200);
+                });
             });
             
-            // Animasi muncul bertahap
-            const elements = document.querySelectorAll('.header, .social-button-horizontal, .social-button-row, footer');
-            
+            // Animasikan tombol masuk
             setTimeout(() => {
-                elements.forEach(el => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
+                buttons.forEach(button => {
+                    button.style.opacity = '1';
                 });
-            }, 100);
+            }, 300);
             
-            // Hanya tampilkan satu versi tombol (komentar salah satu untuk melihat perbedaan)
-            // Secara default, kedua versi ditampilkan untuk perbandingan
-            // Untuk hanya menampilkan versi horizontal dengan ikon di atas teks:
-            // document.querySelector('.links-row').style.display = 'none';
+            // Tampilkan hanya satu versi tombol (pilih salah satu)
+            // Untuk menampilkan hanya versi pertama, hapus komentar baris berikut:
+            // document.querySelector('.horizontal-buttons').style.display = 'none';
             
-            // Untuk hanya menampilkan versi row dengan ikon dan teks sejajar:
-            // document.querySelector('.links-horizontal').style.display = 'none';
+            // Untuk menampilkan hanya versi kedua, hapus komentar baris berikut:
+            // document.querySelector('.links-container').style.display = 'none';
         });
     </script>
 </body>
