@@ -1,0 +1,301 @@
+/* Root Variables for Easy Customization */
+:root {
+    --bg-color: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    --container-bg: rgba(255, 255, 255, 0.08);
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0d6;
+    --accent-color: #6a82fb;
+    --hover-glow: 0 0 20px rgba(106, 130, 251, 0.5);
+    
+    /* Platform Colors */
+    --saweria-color: #FF5E5B;
+    --youtube-color: #FF0000;
+    --discord-color: #5865F2;
+    --tiktok-color: #00f2ea;
+    
+    /* Animation */
+    --transition-speed: 0.3s;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: var(--bg-color);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: var(--text-primary);
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: var(--container-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Profile Section */
+.profile {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid rgba(106, 130, 251, 0.3);
+    box-shadow: 0 0 30px rgba(106, 130, 251, 0.2);
+    transition: all var(--transition-speed) ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--hover-glow);
+}
+
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, #ffffff 0%, #a0a0ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.profile-bio {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Links Container */
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+/* Link Button Styles */
+.link-button {
+    display: flex;
+    align-items: center;
+    padding: 18px 24px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.link-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.link-button:hover::before {
+    transform: translateX(100%);
+}
+
+.link-button:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-glow);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Button Icons */
+.button-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.button-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Button Text */
+.button-text {
+    flex: 1;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Arrow Icon */
+.button-arrow {
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all var(--transition-speed) ease;
+}
+
+.link-button:hover .button-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Platform Specific Colors */
+.saweria {
+    --platform-color: var(--saweria-color);
+}
+
+.saweria:hover {
+    background: linear-gradient(90deg, rgba(255, 94, 91, 0.15) 0%, transparent 100%);
+    box-shadow: 0 0 20px rgba(255, 94, 91, 0.3);
+}
+
+.youtube {
+    --platform-color: var(--youtube-color);
+}
+
+.youtube:hover {
+    background: linear-gradient(90deg, rgba(255, 0, 0, 0.15) 0%, transparent 100%);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.discord {
+    --platform-color: var(--discord-color);
+}
+
+.discord:hover {
+    background: linear-gradient(90deg, rgba(88, 101, 242, 0.15) 0%, transparent 100%);
+    box-shadow: 0 0 20px rgba(88, 101, 242, 0.3);
+}
+
+.tiktok {
+    --platform-color: var(--tiktok-color);
+}
+
+.tiktok:hover {
+    background: linear-gradient(90deg, rgba(0, 242, 234, 0.15) 0%, transparent 100%);
+    box-shadow: 0 0 20px rgba(0, 242, 234, 0.3);
+}
+
+.link-button.youtube .button-icon {
+    color: var(--youtube-color);
+}
+
+.link-button.discord .button-icon {
+    color: var(--discord-color);
+}
+
+.link-button.tiktok .button-icon {
+    color: var(--tiktok-color);
+}
+
+.link-button.saweria .button-icon {
+    color: var(--saweria-color);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 30px 20px;
+    }
+    
+    .profile-name {
+        font-size: 2rem;
+    }
+    
+    .link-button {
+        padding: 16px 20px;
+    }
+    
+    .button-text {
+        font-size: 1rem;
+    }
+    
+    .button-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Loading Animation for Hover */
+.link-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--platform-color) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+    pointer-events: none;
+}
+
+.link-button:hover::after {
+    opacity: 0.1;
+}
