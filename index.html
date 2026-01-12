@@ -3,84 +3,474 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Moonlight Space</title>
+    <title>Portofolio Media Sosial</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 30px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .avatar-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            overflow: hidden;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: pulse-border 3s infinite;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4, #fad0c4, #a18cd1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            max-width: 600px;
+            line-height: 1.6;
+            color: #b0b0d0;
+        }
+
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 20px;
+        }
+
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 25px 30px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.3rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+        }
+
+        .social-button:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-button:active {
+            transform: translateY(-5px);
+        }
+
+        .button-icon {
+            font-size: 2.2rem;
+            margin-right: 20px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .social-button:hover .button-icon {
+            transform: scale(1.1) rotate(5deg);
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .button-text {
+            flex-grow: 1;
+        }
+
+        .button-arrow {
+            font-size: 1.5rem;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .social-button:hover .button-arrow {
+            transform: translateX(8px);
+            opacity: 1;
+        }
+
+        /* Warna khusus untuk setiap tombol */
+        .saweria {
+            background: linear-gradient(135deg, #FF6B35, #FFA62E);
+        }
+
+        .youtube {
+            background: linear-gradient(135deg, #FF0000, #C4302B);
+        }
+
+        .discord {
+            background: linear-gradient(135deg, #5865F2, #7289DA);
+        }
+
+        .tiktok {
+            background: linear-gradient(135deg, #000000, #25F4EE, #FE2C55);
+            background-size: 200% 200%;
+            animation: tiktok-gradient 3s ease infinite;
+        }
+
+        /* Animasi khusus untuk TikTok */
+        @keyframes tiktok-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Efek cahaya di belakang tombol */
+        .social-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .social-button:hover::before {
+            left: 100%;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #8a8ab5;
+            font-size: 0.9rem;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .social-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+            color: #fff;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #b0b0d0;
+        }
+
+        /* Animasi untuk border avatar */
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .buttons-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .social-button {
+                padding: 20px 25px;
+            }
+            
+            .avatar-container {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .social-stats {
+                gap: 20px;
+            }
+        }
+
+        /* Efek partikel background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Dark Sky Background -->
-    <div class="night-sky">
-        <div class="stars"></div>
-        <div class="aurora"></div>
-        <div class="twinkling-stars"></div>
-    </div>
-
-    <!-- Moon Decoration -->
-    <div class="moon"></div>
-
-    <!-- Main Card -->
-    <div class="stellar-card">
-        <!-- Floating Glow -->
-        <div class="card-glow"></div>
-        
-        <!-- Constellation Pattern -->
-        <div class="constellation"></div>
-
-        <!-- Profile Section -->
-        <div class="stellar-profile">
-            <div class="avatar-orbit">
-                <img src="https://i.pravatar.cc/150?img=33" alt="Profile" class="stellar-avatar">
-                <div class="orbit-ring"></div>
+    <!-- Partikel background -->
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <header>
+            <div class="avatar-container">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Avatar" class="avatar">
             </div>
-            
-            <h1 class="stellar-name">
-                <span class="star-icon"><i class="fas fa-star"></i></span>
-                <span class="main-name">Starlight</span>
-                <span class="last-name">Dreamer</span>
-            </h1>
-            
-            <p class="stellar-bio">
-                <i class="fas fa-feather"></i>
-                <span>Writing dreams in the night sky</span>
-                <i class="fas fa-feather"></i>
+            <h1>Selamat Datang!</h1>
+            <p class="subtitle">
+                Halo! Saya seorang kreator konten dengan passion di berbagai platform media sosial. 
+                Ikuti saya di platform berikut untuk konten menarik, kolaborasi, dan update terbaru!
             </p>
+        </header>
+        
+        <div class="buttons-grid">
+            <a href="https://saweria.co" target="_blank" class="social-button saweria">
+                <div class="button-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <div class="button-text">Dukung di Saweria</div>
+                <div class="button-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+            
+            <a href="https://youtube.com" target="_blank" class="social-button youtube">
+                <div class="button-icon">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div class="button-text">Subscribe di YouTube</div>
+                <div class="button-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+            
+            <a href="https://discord.com" target="_blank" class="social-button discord">
+                <div class="button-icon">
+                    <i class="fab fa-discord"></i>
+                </div>
+                <div class="button-text">Join Discord Server</div>
+                <div class="button-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+            
+            <a href="https://tiktok.com" target="_blank" class="social-button tiktok">
+                <div class="button-icon">
+                    <i class="fab fa-tiktok"></i>
+                </div>
+                <div class="button-text">Follow di TikTok</div>
+                <div class="button-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
         </div>
-
-        <!-- Social Constellations -->
-        <div class="stellar-links">
-            <a href="https://saweria.co/yourusername" target="_blank" class="stellar-btn constellation-btn">
-                <div class="btn-icon"><i class="fas fa-coffee"></i></div>
-                <span class="btn-label">Saweria</span>
-                <div class="btn-orbit"></div>
-            </a>
-
-            <a href="https://youtube.com/@yourusername" target="_blank" class="stellar-btn constellation-btn">
-                <div class="btn-icon"><i class="fab fa-youtube"></i></div>
-                <span class="btn-label">YouTube</span>
-                <div class="btn-orbit"></div>
-            </a>
-
-            <a href="https://discord.gg/yourinvite" target="_blank" class="stellar-btn constellation-btn">
-                <div class="btn-icon"><i class="fab fa-discord"></i></div>
-                <span class="btn-label">Discord</span>
-                <div class="btn-orbit"></div>
-            </a>
-
-            <a href="https://tiktok.com/@yourusername" target="_blank" class="stellar-btn constellation-btn">
-                <div class="btn-icon"><i class="fab fa-tiktok"></i></div>
-                <span class="btn-label">TikTok</span>
-                <div class="btn-orbit"></div>
-            </a>
+        
+        <div class="social-stats">
+            <div class="stat">
+                <span class="stat-number">25K+</span>
+                <span class="stat-label">Subscriber YouTube</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">5K+</span>
+                <span class="stat-label">Followers TikTok</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">1.2K+</span>
+                <span class="stat-label">Member Discord</span>
+            </div>
         </div>
-
-        <!-- Night Footer -->
-        <footer class="night-footer">
-            <div class="shooting-star"></div>
-            <p>Under the same sky <i class="fas fa-moon"></i></p>
+        
+        <footer>
+            <p>© 2023 Portofolio Media Sosial. Semua hak dilindungi.</p>
+            <p>Website ini dibuat dengan HTML dan CSS murni, siap untuk di-deploy ke GitHub Pages.</p>
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Membuat partikel background dinamis
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Ukuran acak
+                const size = Math.random() * 20 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Posisi awal acak
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                
+                // Animasi dengan durasi acak
+                const duration = Math.random() * 20 + 20;
+                const delay = Math.random() * 5;
+                particle.style.animation = `float ${duration}s infinite linear ${delay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Menambahkan efek hover yang lebih interaktif pada tombol
+            const buttons = document.querySelectorAll('.social-button');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('.button-icon');
+                    icon.style.transform = 'scale(1.2) rotate(10deg)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('.button-icon');
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+            
+            // Menambahkan efek klik pada tombol
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Animasi ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.7);
+                        transform: scale(0);
+                        animation: ripple-animation 0.6s linear;
+                        width: ${size}px;
+                        height: ${size}px;
+                        top: ${y}px;
+                        left: ${x}px;
+                        pointer-events: none;
+                    `;
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+            
+            // Menambahkan style untuk ripple animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple-animation {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
 </body>
 </html>
