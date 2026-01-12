@@ -3,736 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media Hub</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <style>
-        :root {
-            --primary: #6a11cb;
-            --secondary: #2575fc;
-            --saweria: #FF6B35;
-            --youtube: #FF0000;
-            --discord: #5865F2;
-            --tiktok: #000000;
-            --text-light: #ffffff;
-            --text-dark: #333333;
-            --shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            --glow: 0 0 20px rgba(255, 255, 255, 0.3);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: var(--text-light);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Background efek partikel */
-        .particles-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 20s infinite linear;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Efek gelombang */
-        .wave-container {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 200px;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .wave {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 200%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 40%;
-            animation: wave 15s infinite linear;
-        }
-
-        .wave:nth-child(2) {
-            animation-delay: -5s;
-            opacity: 0.5;
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        @keyframes wave {
-            0% {
-                transform: translateX(0) translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateX(-25%) translateY(-20px) rotate(180deg);
-            }
-            100% {
-                transform: translateX(-50%) translateY(0) rotate(360deg);
-            }
-        }
-
-        /* Kontainer utama */
-        .main-container {
-            max-width: 1200px;
-            width: 100%;
-            padding: 40px;
-            text-align: center;
-            z-index: 1;
-            position: relative;
-        }
-
-        /* Header */
-        .header {
-            margin-bottom: 60px;
-        }
-
-        .profile-container {
-            position: relative;
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 30px;
-        }
-
-        .profile-frame {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            animation: pulse 4s infinite alternate;
-            box-shadow: var(--shadow), var(--glow);
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 20px rgba(106, 17, 203, 0.5);
-            }
-            100% {
-                transform: scale(1.05);
-                box-shadow: 0 0 40px rgba(106, 17, 203, 0.8);
-            }
-        }
-
-        .profile-img {
-            width: 94%;
-            height: 94%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid white;
-        }
-
-        .title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 48px;
-            font-weight: 900;
-            margin-bottom: 15px;
-            background: linear-gradient(to right, #ff6b9d, #6a11cb, #2575fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            letter-spacing: 1px;
-        }
-
-        .subtitle {
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 700px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
-            font-weight: 300;
-        }
-
-        /* Grid tombol */
-        .buttons-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        /* Tombol media sosial */
-        .social-button {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            font-size: 18px;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
-            z-index: 1;
-            min-height: 200px;
-            box-shadow: var(--shadow);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .social-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .social-button:hover::before {
-            opacity: 1;
-        }
-
-        .social-button:hover {
-            transform: translateY(-15px) scale(1.05);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 255, 255, 0.1);
-        }
-
-        .button-icon {
-            font-size: 50px;
-            margin-bottom: 20px;
-            transition: all 0.5s ease;
-            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
-        }
-
-        .social-button:hover .button-icon {
-            transform: scale(1.2) rotate(10deg);
-        }
-
-        .button-text {
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
-        .button-subtext {
-            font-size: 14px;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        /* Warna khusus untuk setiap tombol */
-        .saweria-btn {
-            background: linear-gradient(135deg, var(--saweria), #FFA62E);
-        }
-
-        .youtube-btn {
-            background: linear-gradient(135deg, var(--youtube), #C4302B);
-        }
-
-        .discord-btn {
-            background: linear-gradient(135deg, var(--discord), #7289DA);
-        }
-
-        .tiktok-btn {
-            background: linear-gradient(135deg, var(--tiktok) 0%, #25F4EE 50%, #FE2C55 100%);
-            background-size: 200% 200%;
-            animation: tiktok-gradient 3s ease infinite;
-        }
-
-        @keyframes tiktok-gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Efek cahaya untuk tombol */
-        .social-button::after {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, 
-                rgba(255,255,255,0.2) 0%, 
-                rgba(255,255,255,0) 30%, 
-                rgba(255,255,255,0) 70%, 
-                rgba(255,255,255,0.2) 100%);
-            z-index: -2;
-            border-radius: 27px;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .social-button:hover::after {
-            opacity: 1;
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            width: 100%;
-            max-width: 800px;
-        }
-
-        .footer-text {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 22px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .social-link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-        }
-
-        /* Responsif */
-        @media (max-width: 1100px) {
-            .buttons-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .title {
-                font-size: 40px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .main-container {
-                padding: 30px 20px;
-            }
-            
-            .title {
-                font-size: 36px;
-            }
-            
-            .subtitle {
-                font-size: 18px;
-            }
-            
-            .profile-container {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .social-button {
-                padding: 30px 20px;
-                min-height: 180px;
-            }
-            
-            .button-icon {
-                font-size: 45px;
-            }
-            
-            .button-text {
-                font-size: 20px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .buttons-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-                margin: 0 auto 60px;
-            }
-            
-            .title {
-                font-size: 32px;
-            }
-            
-            .subtitle {
-                font-size: 16px;
-            }
-            
-            .social-button {
-                min-height: 160px;
-            }
-        }
-
-        /* Animasi khusus untuk elemen */
-        .animate-pop {
-            animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-            opacity: 0;
-        }
-
-        @keyframes popIn {
-            0% {
-                opacity: 0;
-                transform: translateY(50px) scale(0.8);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
-        .delay-5 { animation-delay: 0.5s; }
-        .delay-6 { animation-delay: 0.6s; }
-
-        /* Efek neon untuk judul */
-        .neon-text {
-            text-shadow: 
-                0 0 5px #fff,
-                0 0 10px #fff,
-                0 0 20px #ff6b9d,
-                0 0 30px #ff6b9d,
-                0 0 40px #6a11cb,
-                0 0 70px #6a11cb,
-                0 0 80px #2575fc,
-                0 0 100px #2575fc;
-        }
-
-        /* Mode gelap/terang toggle (opsional) */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 100;
-            transition: all 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(30deg);
-        }
-
-        .theme-toggle i {
-            font-size: 24px;
-            color: white;
-        }
-    </style>
+    <meta name="description" content="Link Profil Sosial Media">
+    <title>My Links | Connect With Me</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Partikel background -->
-    <div class="particles-container" id="particles"></div>
-    
-    <!-- Efek gelombang -->
-    <div class="wave-container">
-        <div class="wave"></div>
-        <div class="wave"></div>
-    </div>
-    
-    <!-- Toggle tema (opsional) -->
-    <div class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
-    </div>
-
-    <!-- Konten utama -->
-    <div class="main-container">
-        <header class="header animate-pop">
-            <div class="profile-container animate-pop delay-1">
-                <div class="profile-frame">
-                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Profile" class="profile-img">
-                </div>
+    <div class="container">
+        <!-- Profile Section -->
+        <header class="profile">
+            <div class="profile-img">
+                <img src="https://i.pravatar.cc/150?img=3" alt="Profile Picture">
             </div>
-            
-            <h1 class="title neon-text animate-pop delay-2">Social Media Hub</h1>
-            <p class="subtitle animate-pop delay-3">
-                Temukan konten eksklusif, bergabung dengan komunitas, dan dukung kreator favorit Anda di berbagai platform.
-                Klik tombol di bawah untuk terhubung!
-            </p>
+            <h1 class="profile-name">Nama Anda</h1>
+            <p class="profile-bio">Tuliskan bio singkat Anda di sini ✨</p>
         </header>
 
-        <div class="buttons-grid">
-            <a href="https://saweria.co" target="_blank" class="social-button saweria-btn animate-pop delay-1">
+        <!-- Links Section -->
+        <main class="links-container">
+            <!-- Saweria Button -->
+            <a href="https://saweria.co/USERNAME_ANDA" target="_blank" rel="noopener noreferrer" class="link-button saweria">
                 <div class="button-icon">
-                    <i class="fas fa-heart"></i>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                    </svg>
                 </div>
-                <div class="button-text">Saweria</div>
-                <div class="button-subtext">Dukung Kreator</div>
-            </a>
-            
-            <a href="https://youtube.com" target="_blank" class="social-button youtube-btn animate-pop delay-2">
-                <div class="button-icon">
-                    <i class="fab fa-youtube"></i>
+                <span class="button-text">Support di Saweria</span>
+                <div class="button-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
                 </div>
-                <div class="button-text">YouTube</div>
-                <div class="button-subtext">Tonton Konten</div>
             </a>
-            
-            <a href="https://discord.com" target="_blank" class="social-button discord-btn animate-pop delay-3">
-                <div class="button-icon">
-                    <i class="fab fa-discord"></i>
-                </div>
-                <div class="button-text">Discord</div>
-                <div class="button-subtext">Bergabung Komunitas</div>
-            </a>
-            
-            <a href="https://tiktok.com" target="_blank" class="social-button tiktok-btn animate-pop delay-4">
-                <div class="button-icon">
-                    <i class="fab fa-tiktok"></i>
-                </div>
-                <div class="button-text">TikTok</div>
-                <div class="button-subtext">Ikuti Trend</div>
-            </a>
-        </div>
 
-        <footer class="animate-pop delay-5">
-            <p class="footer-text">© 2023 Social Media Hub. Semua hak dilindungi.</p>
-            <p class="footer-text">Website ini dibuat dengan HTML, CSS, dan JavaScript murni. Siap untuk di-deploy ke GitHub Pages.</p>
-            
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fas fa-globe"></i></a>
-                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-                <a href="#" class="social-link"><i class="fas fa-share-alt"></i></a>
-                <a href="#" class="social-link"><i class="fas fa-info-circle"></i></a>
-            </div>
+            <!-- YouTube Button -->
+            <a href="https://youtube.com/@USERNAME_ANDA" target="_blank" rel="noopener noreferrer" class="link-button youtube">
+                <div class="button-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </div>
+                <span class="button-text">YouTube Channel</span>
+                <div class="button-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Discord Button -->
+            <a href="https://discord.gg/INVITE_CODE" target="_blank" rel="noopener noreferrer" class="link-button discord">
+                <div class="button-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.086 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.086 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
+                </div>
+                <span class="button-text">Join Discord Server</span>
+                <div class="button-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- TikTok Button -->
+            <a href="https://tiktok.com/@USERNAME_ANDA" target="_blank" rel="noopener noreferrer" class="link-button tiktok">
+                <div class="button-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                    </svg>
+                </div>
+                <span class="button-text">TikTok Profile</span>
+                <div class="button-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </div>
+            </a>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2024 Nama Anda | Made with ❤️</p>
         </footer>
     </div>
-
-    <script>
-        // Membuat partikel background
-        document.addEventListener('DOMContentLoaded', function() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 40;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Ukuran acak
-                const size = Math.random() * 20 + 5;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                // Posisi acak
-                particle.style.left = `${Math.random() * 100}vw`;
-                particle.style.top = `${Math.random() * 100}vh`;
-                
-                // Warna acak
-                const colors = [
-                    'rgba(106, 17, 203, 0.3)',
-                    'rgba(37, 117, 252, 0.3)',
-                    'rgba(255, 107, 53, 0.3)',
-                    'rgba(255, 0, 0, 0.3)',
-                    'rgba(88, 101, 242, 0.3)',
-                    'rgba(255, 255, 255, 0.2)'
-                ];
-                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                
-                // Animasi dengan durasi acak
-                const duration = Math.random() * 20 + 20;
-                const delay = Math.random() * 5;
-                particle.style.animation = `float ${duration}s infinite linear ${delay}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-            
-            // Efek hover interaktif untuk tombol
-            const buttons = document.querySelectorAll('.social-button');
-            
-            buttons.forEach(button => {
-                button.addEventListener('mouseenter', function() {
-                    // Tambahkan efek cahaya tambahan
-                    const glow = document.createElement('div');
-                    glow.style.position = 'absolute';
-                    glow.style.top = '0';
-                    glow.style.left = '0';
-                    glow.style.width = '100%';
-                    glow.style.height = '100%';
-                    glow.style.borderRadius = '25px';
-                    glow.style.background = 'radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%)';
-                    glow.style.zIndex = '-1';
-                    glow.style.opacity = '0';
-                    glow.style.transition = 'opacity 0.5s ease';
-                    
-                    this.appendChild(glow);
-                    
-                    setTimeout(() => {
-                        glow.style.opacity = '1';
-                    }, 10);
-                    
-                    // Hapus efek saat mouse keluar
-                    this.addEventListener('mouseleave', () => {
-                        glow.style.opacity = '0';
-                        setTimeout(() => {
-                            if (glow.parentNode) {
-                                glow.parentNode.removeChild(glow);
-                            }
-                        }, 500);
-                    }, { once: true });
-                });
-                
-                // Efek klik dengan ripple
-                button.addEventListener('click', function(e) {
-                    // Cegah navigasi langsung untuk memberikan waktu animasi
-                    e.preventDefault();
-                    
-                    // Buat efek ripple
-                    const ripple = document.createElement('span');
-                    const rect = this.getBoundingClientRect();
-                    const size = Math.max(rect.width, rect.height);
-                    const x = e.clientX - rect.left - size / 2;
-                    const y = e.clientY - rect.top - size / 2;
-                    
-                    ripple.style.cssText = `
-                        position: absolute;
-                        border-radius: 50%;
-                        background: rgba(255, 255, 255, 0.5);
-                        transform: scale(0);
-                        animation: ripple-animation 0.6s linear;
-                        width: ${size}px;
-                        height: ${size}px;
-                        top: ${y}px;
-                        left: ${x}px;
-                        pointer-events: none;
-                    `;
-                    
-                    this.appendChild(ripple);
-                    
-                    // Efek tekan
-                    this.style.transform = 'translateY(-5px) scale(0.95)';
-                    
-                    // Kembalikan setelah 150ms
-                    setTimeout(() => {
-                        this.style.transform = 'translateY(-15px) scale(1.05)';
-                    }, 150);
-                    
-                    // Hapus ripple setelah animasi selesai
-                    setTimeout(() => {
-                        ripple.remove();
-                    }, 600);
-                    
-                    // Buka link setelah delay
-                    setTimeout(() => {
-                        window.open(this.href, '_blank');
-                    }, 300);
-                });
-            });
-            
-            // Tambahkan animasi ripple ke stylesheet
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes ripple-animation {
-                    to {
-                        transform: scale(4);
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(style);
-            
-            // Toggle tema (opsional)
-            const themeToggle = document.getElementById('themeToggle');
-            const themeIcon = themeToggle.querySelector('i');
-            
-            themeToggle.addEventListener('click', function() {
-                const isDark = document.body.style.background !== 'linear-gradient(135deg, #f5f7fa, #c3cfe2)';
-                
-                if (isDark) {
-                    // Ganti ke tema terang
-                    document.body.style.background = 'linear-gradient(135deg, #f5f7fa, #c3cfe2)';
-                    document.body.style.color = '#333333';
-                    themeIcon.className = 'fas fa-sun';
-                    
-                    // Update tombol sosial
-                    document.querySelectorAll('.social-button').forEach(btn => {
-                        btn.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
-                    });
-                } else {
-                    // Kembali ke tema gelap
-                    document.body.style.background = 'linear-gradient(135deg, #0f0c29, #302b63, #24243e)';
-                    document.body.style.color = '#ffffff';
-                    themeIcon.className = 'fas fa-moon';
-                    
-                    // Update tombol sosial
-                    document.querySelectorAll('.social-button').forEach(btn => {
-                        btn.style.boxShadow = 'var(--shadow)';
-                    });
-                }
-            });
-            
-            // Animasi saat halaman dimuat
-            const animateElements = document.querySelectorAll('.animate-pop');
-            
-            animateElements.forEach(el => {
-                el.style.animationPlayState = 'running';
-            });
-        });
-    </script>
 </body>
 </html>
