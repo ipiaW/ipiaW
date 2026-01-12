@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Links</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #faf9f7;
-            --card-color: #ffffff;
-            --text-color: #2c3e50;
-            --text-light: #7f8c8d;
-            --accent-color: #e74c3c;
-            --border-color: #eaeaea;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --bg-color: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --card-color: rgba(255, 255, 255, 0.95);
+            --text-color: #2d3436;
+            --text-light: #636e72;
+            --accent-color: #6c5ce7;
+            --border-color: rgba(255, 255, 255, 0.3);
+            --shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+            --shadow-hover: 0 20px 40px rgba(50, 50, 93, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -24,8 +25,8 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-color);
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-color);
             color: var(--text-color);
             min-height: 100vh;
             display: flex;
@@ -34,44 +35,100 @@
             justify-content: center;
             padding: 20px;
             line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Latar belakang dekoratif */
+        .bg-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.1) 0%, rgba(155, 89, 182, 0.1) 100%);
+        }
+
+        .circle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -100px;
+        }
+
+        .circle:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: -80px;
+            left: -50px;
+        }
+
+        .circle:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            left: 10%;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 650px;
             width: 100%;
             background-color: var(--card-color);
-            border-radius: 20px;
+            border-radius: 24px;
             box-shadow: var(--shadow);
-            padding: 40px 30px;
+            padding: 50px 40px;
             text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
+            z-index: 1;
         }
 
+        /* Efek kilau */
         .container::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #ff6b35, #ffa62e, #ff0000, #5865f2, #000000);
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b35, #ffa62e, #ff0000, #5865f2, #000000, #6c5ce7);
+            background-size: 400% 100%;
+            animation: shimmer 8s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 400% 0%; }
         }
 
         .profile {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             position: relative;
         }
 
         .avatar-container {
-            width: 100px;
-            height: 100px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
             overflow: hidden;
-            border: 2px solid var(--border-color);
-            padding: 3px;
-            background-color: white;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.5s ease;
+        }
+
+        .avatar-container:hover {
+            transform: scale(1.05);
         }
 
         .avatar {
@@ -82,40 +139,45 @@
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 500;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
+            font-family: 'DM Serif Display', serif;
+            font-size: 36px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .description {
-            font-size: 16px;
+            font-size: 17px;
             color: var(--text-light);
-            max-width: 400px;
-            margin: 0 auto 30px;
+            max-width: 450px;
+            margin: 0 auto 40px;
             font-weight: 300;
+            line-height: 1.7;
         }
 
         .links {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            margin-bottom: 30px;
+            gap: 20px;
+            margin-bottom: 40px;
         }
 
         .link-button {
             display: flex;
             align-items: center;
-            padding: 18px 24px;
-            border-radius: 12px;
+            padding: 22px 28px;
+            border-radius: 16px;
             text-decoration: none;
             color: var(--text-color);
             font-weight: 500;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
-            background-color: var(--card-color);
+            font-size: 17px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.8);
             position: relative;
             overflow: hidden;
         }
@@ -124,112 +186,150 @@
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.02), transparent);
-            transition: left 0.7s ease;
+            background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .link-button:hover::before {
-            left: 100%;
+            opacity: 1;
         }
 
         .link-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            border-color: #ddd;
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
         }
 
         .link-icon {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 16px;
-            font-size: 20px;
-            border-radius: 10px;
-            background-color: rgba(0,0,0,0.03);
-            transition: all 0.3s ease;
+            margin-right: 20px;
+            font-size: 22px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--text-color);
+            transition: all 0.4s ease;
+            z-index: 1;
         }
 
         .link-button:hover .link-icon {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(5deg);
         }
 
         .link-text {
             flex-grow: 1;
             text-align: left;
             font-weight: 500;
+            z-index: 1;
         }
 
         .link-arrow {
             color: var(--text-light);
-            font-size: 14px;
-            transition: all 0.3s ease;
+            font-size: 16px;
+            transition: all 0.4s ease;
+            z-index: 1;
         }
 
         .link-button:hover .link-arrow {
-            transform: translateX(5px);
+            transform: translateX(8px);
             color: var(--accent-color);
         }
 
-        /* Warna ikon dan efek hover */
+        /* Warna khusus untuk setiap tombol */
+        .saweria:hover {
+            border-color: rgba(255, 107, 53, 0.2);
+            background: linear-gradient(to right, white, rgba(255, 107, 53, 0.03));
+        }
+
+        .youtube:hover {
+            border-color: rgba(255, 0, 0, 0.2);
+            background: linear-gradient(to right, white, rgba(255, 0, 0, 0.03));
+        }
+
+        .discord:hover {
+            border-color: rgba(88, 101, 242, 0.2);
+            background: linear-gradient(to right, white, rgba(88, 101, 242, 0.03));
+        }
+
+        .tiktok:hover {
+            border-color: rgba(0, 0, 0, 0.2);
+            background: linear-gradient(to right, white, rgba(0, 0, 0, 0.03));
+        }
+
+        /* Ikon dengan warna brand */
         .saweria .link-icon {
             color: #ff6b35;
-            background-color: rgba(255, 107, 53, 0.08);
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 166, 46, 0.1) 100%);
         }
 
         .youtube .link-icon {
             color: #ff0000;
-            background-color: rgba(255, 0, 0, 0.08);
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(196, 48, 43, 0.1) 100%);
         }
 
         .discord .link-icon {
             color: #5865f2;
-            background-color: rgba(88, 101, 242, 0.08);
+            background: linear-gradient(135deg, rgba(88, 101, 242, 0.1) 0%, rgba(114, 137, 218, 0.1) 100%);
         }
 
         .tiktok .link-icon {
             color: #000000;
-            background-color: rgba(0, 0, 0, 0.08);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(37, 244, 238, 0.1) 50%, rgba(254, 44, 85, 0.1) 100%);
         }
 
         footer {
-            margin-top: 30px;
+            margin-top: 40px;
             text-align: center;
             color: var(--text-light);
             font-size: 14px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
+            padding-top: 25px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
             width: 100%;
             font-weight: 300;
+        }
+
+        .footer-text {
+            margin-bottom: 15px;
         }
 
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             margin-top: 20px;
         }
 
         .social-icons a {
             color: var(--text-light);
             font-size: 18px;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
         }
 
         .social-icons a:hover {
             color: var(--accent-color);
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         /* Animasi untuk elemen */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -238,7 +338,8 @@
         }
 
         .profile, .link-button, footer {
-            animation: fadeInUp 0.5s ease forwards;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
         }
 
         .link-button:nth-child(1) { animation-delay: 0.1s; }
@@ -248,82 +349,143 @@
         footer { animation-delay: 0.5s; }
 
         /* Responsive design */
-        @media (max-width: 640px) {
+        @media (max-width: 700px) {
             .container {
-                padding: 30px 20px;
-                border-radius: 16px;
+                padding: 40px 25px;
+                border-radius: 20px;
             }
             
             h1 {
-                font-size: 24px;
+                font-size: 30px;
             }
             
             .description {
-                font-size: 15px;
+                font-size: 16px;
             }
             
             .link-button {
-                padding: 16px 20px;
+                padding: 20px 24px;
             }
             
             .avatar-container {
-                width: 90px;
-                height: 90px;
+                width: 110px;
+                height: 110px;
             }
         }
 
-        /* Mode gelap opsional */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #1a1a1a;
-                --card-color: #2d2d2d;
-                --text-color: #f5f5f5;
-                --text-light: #b0b0b0;
-                --border-color: #444444;
-                --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 26px;
+            }
+            
+            .link-button {
+                padding: 18px 20px;
             }
             
             .link-icon {
-                background-color: rgba(255,255,255,0.05);
+                width: 45px;
+                height: 45px;
+                margin-right: 15px;
+                font-size: 20px;
+            }
+            
+            .link-text {
+                font-size: 16px;
             }
         }
 
-        /* Efek ripple untuk tombol */
-        .ripple {
+        /* Mode gelap */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+                --card-color: rgba(30, 30, 46, 0.9);
+                --text-color: #f0f0f0;
+                --text-light: #a0a0c0;
+                --border-color: rgba(255, 255, 255, 0.1);
+                --shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+                --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.4);
+            }
+            
+            .link-button {
+                background-color: rgba(40, 40, 60, 0.8);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .link-icon {
+                background: linear-gradient(135deg, rgba(60, 60, 80, 0.8) 0%, rgba(40, 40, 60, 0.8) 100%);
+            }
+            
+            .saweria:hover {
+                background: linear-gradient(to right, rgba(40, 40, 60, 0.8), rgba(255, 107, 53, 0.1));
+            }
+            
+            .youtube:hover {
+                background: linear-gradient(to right, rgba(40, 40, 60, 0.8), rgba(255, 0, 0, 0.1));
+            }
+            
+            .discord:hover {
+                background: linear-gradient(to right, rgba(40, 40, 60, 0.8), rgba(88, 101, 242, 0.1));
+            }
+            
+            .tiktok:hover {
+                background: linear-gradient(to right, rgba(40, 40, 60, 0.8), rgba(0, 0, 0, 0.1));
+            }
+            
+            .circle {
+                background: linear-gradient(135deg, rgba(108, 92, 231, 0.15) 0%, rgba(155, 89, 182, 0.15) 100%);
+            }
+            
+            .social-icons a {
+                background: rgba(60, 60, 80, 0.5);
+            }
+            
+            .social-icons a:hover {
+                background: rgba(80, 80, 100, 0.8);
+            }
+        }
+
+        /* Efek partikel kecil */
+        .particle {
             position: absolute;
+            background: rgba(108, 92, 231, 0.1);
             border-radius: 50%;
-            background-color: rgba(0, 0, 0, 0.1);
-            transform: scale(0);
-            animation: ripple 0.6s linear;
             pointer-events: none;
-        }
-
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
+            z-index: -1;
         }
     </style>
 </head>
 <body>
+    <!-- Latar belakang dekoratif -->
+    <div class="bg-decoration">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    
+    <!-- Partikel kecil -->
+    <div id="particles"></div>
+    
     <div class="container">
         <div class="profile">
             <div class="avatar-container">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Avatar" class="avatar">
             </div>
-            <h1>Media Sosial</h1>
+            <h1>Connect With Me</h1>
             <p class="description">
-                Temukan saya di berbagai platform untuk konten menarik, kolaborasi, dan komunikasi.
+                Temukan konten menarik, kolaborasi, dan dukungan di berbagai platform media sosial. Mari terhubung!
             </p>
         </div>
         
         <div class="links">
             <a href="https://saweria.co" target="_blank" class="link-button saweria">
                 <div class="link-icon">
-                    <i class="fas fa-hand-holding-heart"></i>
+                    <i class="fas fa-heart"></i>
                 </div>
-                <div class="link-text">Saweria</div>
+                <div class="link-text">Support on Saweria</div>
                 <div class="link-arrow">
                     <i class="fas fa-arrow-right"></i>
                 </div>
@@ -333,7 +495,7 @@
                 <div class="link-icon">
                     <i class="fab fa-youtube"></i>
                 </div>
-                <div class="link-text">YouTube</div>
+                <div class="link-text">Watch on YouTube</div>
                 <div class="link-arrow">
                     <i class="fas fa-arrow-right"></i>
                 </div>
@@ -343,7 +505,7 @@
                 <div class="link-icon">
                     <i class="fab fa-discord"></i>
                 </div>
-                <div class="link-text">Discord</div>
+                <div class="link-text">Join Discord Community</div>
                 <div class="link-arrow">
                     <i class="fas fa-arrow-right"></i>
                 </div>
@@ -353,7 +515,7 @@
                 <div class="link-icon">
                     <i class="fab fa-tiktok"></i>
                 </div>
-                <div class="link-text">TikTok</div>
+                <div class="link-text">Follow on TikTok</div>
                 <div class="link-arrow">
                     <i class="fas fa-arrow-right"></i>
                 </div>
@@ -361,83 +523,140 @@
         </div>
         
         <footer>
-            <p>© 2023 • Links</p>
-            <p>Website minimalis dengan HTML dan CSS murni</p>
+            <div class="footer-text">
+                <p>© 2023 • Links Portfolio</p>
+                <p>Designed with simplicity and elegance</p>
+            </div>
             <div class="social-icons">
                 <a href="#"><i class="fas fa-globe"></i></a>
                 <a href="#"><i class="fas fa-envelope"></i></a>
-                <a href="#"><i class="fas fa-rss"></i></a>
+                <a href="#"><i class="fas fa-share-alt"></i></a>
             </div>
         </footer>
     </div>
 
     <script>
-        // Efek ripple untuk tombol
+        // Efek partikel kecil di background
         document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Ukuran acak
+                const size = Math.random() * 10 + 3;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Posisi acak
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                
+                // Animasi melayang
+                const duration = Math.random() * 20 + 20;
+                const delay = Math.random() * 5;
+                particle.style.animation = `float ${duration}s infinite linear ${delay}s`;
+                
+                // Warna acak berdasarkan mode
+                const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const colors = isDarkMode 
+                    ? ['rgba(108, 92, 231, 0.2)', 'rgba(155, 89, 182, 0.2)', 'rgba(86, 98, 246, 0.2)']
+                    : ['rgba(108, 92, 231, 0.15)', 'rgba(255, 107, 53, 0.15)', 'rgba(255, 0, 0, 0.1)'];
+                
+                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Animasi float untuk partikel
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes float {
+                    0% {
+                        transform: translateY(0) translateX(0) rotate(0deg);
+                        opacity: 0;
+                    }
+                    10% {
+                        opacity: 0.7;
+                    }
+                    90% {
+                        opacity: 0.7;
+                    }
+                    100% {
+                        transform: translateY(-100vh) translateX(100px) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Efek klik pada tombol
             const buttons = document.querySelectorAll('.link-button');
             
             buttons.forEach(button => {
                 button.addEventListener('click', function(e) {
-                    // Cegah navigasi langsung untuk memberi waktu animasi
+                    // Cegah navigasi langsung untuk memberi waktu efek visual
                     e.preventDefault();
                     
-                    // Buat efek ripple
-                    const ripple = document.createElement('span');
-                    const rect = this.getBoundingClientRect();
-                    const size = Math.max(rect.width, rect.height);
-                    const x = e.clientX - rect.left - size / 2;
-                    const y = e.clientY - rect.top - size / 2;
+                    // Efek tekan
+                    this.style.transform = 'translateY(-2px) scale(0.99)';
                     
-                    ripple.classList.add('ripple');
-                    ripple.style.cssText = `
-                        width: ${size}px;
-                        height: ${size}px;
-                        top: ${y}px;
-                        left: ${x}px;
-                    `;
-                    
-                    this.appendChild(ripple);
-                    
-                    // Hapus ripple setelah animasi selesai
+                    // Kembalikan setelah 150ms
                     setTimeout(() => {
-                        ripple.remove();
-                    }, 600);
+                        this.style.transform = 'translateY(-6px)';
+                    }, 150);
                     
-                    // Buka link setelah delay kecil
+                    // Buka link setelah delay
                     setTimeout(() => {
                         window.open(this.href, '_blank');
                     }, 300);
                 });
                 
-                // Efek hover untuk arrow
+                // Efek hover untuk panah
                 button.addEventListener('mouseenter', function() {
                     const arrow = this.querySelector('.link-arrow');
-                    arrow.style.transform = 'translateX(5px)';
-                    arrow.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent-color');
+                    arrow.style.transform = 'translateX(8px)';
+                    arrow.style.color = getComputedStyle(document.documentElement)
+                        .getPropertyValue('--accent-color');
                 });
                 
                 button.addEventListener('mouseleave', function() {
                     const arrow = this.querySelector('.link-arrow');
-                    arrow.style.transform = 'translateX(0)';
-                    arrow.style.color = '';
+                    if (!this.classList.contains('clicked')) {
+                        arrow.style.transform = 'translateX(0)';
+                        arrow.style.color = '';
+                    }
                 });
             });
             
             // Animasi muncul bertahap
             const elements = document.querySelectorAll('.profile, .link-button, footer');
-            elements.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-            });
             
-            // Setelah halaman dimuat, jalankan animasi
+            // Jalankan animasi setelah halaman dimuat
             setTimeout(() => {
                 elements.forEach(el => {
-                    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                     el.style.opacity = '1';
                     el.style.transform = 'translateY(0)';
                 });
-            }, 100);
+            }, 200);
+            
+            // Interaksi dengan avatar
+            const avatar = document.querySelector('.avatar-container');
+            avatar.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+            
+            avatar.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Deteksi perubahan mode gelap/terang
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
+            // Refresh partikel untuk mengupdate warna
+            location.reload();
         });
     </script>
 </body>
